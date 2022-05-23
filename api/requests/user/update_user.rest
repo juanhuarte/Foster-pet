@@ -1,0 +1,10 @@
+PUT http://localhost:3001/user
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOGMxNmY3NTdjZTZkZTUyYTdjZjMyYyIsIm1haWwiOiJqdWFuQGdtYWlsLmNvbSIsImlhdCI6MTY1MzM0ODEwMH0.Vy_ORZspvG5L4HgUsMe3h5Bxe9wmo0dUNDnExZq3_t8
+
+{
+    "name": "Juan Ignacio",
+    "lastname": "Huar",
+    "mail": "juanh@gmail.com",
+    "location": "-38.93740677490854 -68.05900288692506"
+}
