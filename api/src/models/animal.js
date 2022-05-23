@@ -19,7 +19,7 @@ const schema = new mongoose.Schema({
     required: true,
   },
   description: {
-    type: Text,
+    type: String,
     required: true,
   },
   temporaryName: {

@@ -1,0 +1,2 @@
+GET http://localhost:3001/user?mail=juan@gmail.com&password=Hola1234
+Content-Type: application/json
