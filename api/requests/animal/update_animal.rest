@@ -1,0 +1,14 @@
+PUT http://localhost:3001/animal/628c29d6630ee9d5345b70c8
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOGMxNzRhNTdjZTZkZTUyYTdjZjMzNSIsIm1haWwiOiJqdWFuQGdtYWlsLmNvbSIsImlhdCI6MTY1MzM1MjQ5OX0.frJqe8iptbsXvmxbw8OD8NBxL8khqRhOzyWcnmh1Q48
+
+{
+    "type": "Dog",
+    "gender": "Female",
+    "age": "6 years",
+    "size": "Medium",
+    "description": "My name is Chip and I am a neutered male. My rescuer thinks I am about 5 years old.",
+    "temporaryName": "Chip",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTst-ZhrNnLykIfO77sofsbnDd-CuQsEV8xzw&usqp=CAU",
+    "location": "-38.94979895445034 -68.04452851658687"
+}
