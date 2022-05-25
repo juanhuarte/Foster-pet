@@ -1,20 +1,19 @@
 const User = require("../../../models/user");
 const bcrypt = require("bcrypt");
-const { authorizationToken } = require("../authorization/authorization");
 
 const updatePassword = async (req, res) => {
   const { oldPassword, newPassword } = req.body;
+  const { userId } = req.user;
 
-  const decodedToken = authorizationToken(req, res);
-
-  const user = await User.findById(decodedToken.id);
+  const user = await User.findById(userId);
   if (bcrypt.compareSync(oldPassword, user.password)) {
     let encryptedPassword = bcrypt.hashSync(newPassword, 10);
     await User.updateOne(
-      { _id: decodedToken.id },
+      { _id: userId },
       { password: encryptedPassword }
     ).catch((err) =>
       res.send({
+        success: false,
         message: "Error trying to change the password",
       })
     );
@@ -22,7 +21,7 @@ const updatePassword = async (req, res) => {
       success: "Password has benn changed successfully",
     });
   } else {
-    res.send({ error: "wrong password" });
+    res.send({ success: false, error: "wrong password" });
   }
 };
 

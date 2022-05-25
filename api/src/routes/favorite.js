@@ -8,11 +8,14 @@ const {
 const {
   deleteFavoriteAnimal,
 } = require("./controllers/favorite/deleteFavoriteAnimal");
+const {
+  authorizationToken,
+} = require("./controllers/authorization/authorization");
 
 const router = Router();
 
-router.put("/favorite/:id", addFavoriteAnimal);
-router.get("/favorite", getFavoritesAnimals);
-router.delete("/favorite/:id", deleteFavoriteAnimal);
+router.put("/favorite/:id", authorizationToken, addFavoriteAnimal);
+router.get("/favorite", authorizationToken, getFavoritesAnimals);
+router.delete("/favorite/:id", authorizationToken, deleteFavoriteAnimal);
 
 module.exports = router;

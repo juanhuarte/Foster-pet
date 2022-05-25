@@ -1,18 +1,19 @@
 const User = require("../../../models/user");
 const Animal = require("../../../models/animal");
-const { authorizationToken } = require("../authorization/authorization");
 
 const deleteUser = async (req, res) => {
-  const decodedToken = authorizationToken(req, res);
+  const { userId, mail } = req.user;
   try {
-    const userDeleted = await User.findByIdAndDelete(decodedToken.id);
+    const userDeleted = await User.findByIdAndDelete(userId);
     if (userDeleted) {
-      await Animal.deleteMany({ user: decodedToken.id });
+      await Animal.deleteMany({ user: userId });
       res.json({
-        message: `The User ${decodedToken.mail} was deleted successfully`,
+        success: true,
+        message: `The User ${mail} was deleted successfully`,
       });
     } else {
       res.json({
+        success: false,
         message: "This User doesn't exist",
       });
     }

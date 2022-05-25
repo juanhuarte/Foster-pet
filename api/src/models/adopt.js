@@ -7,7 +7,7 @@ const schema = new mongoose.Schema({
     required: true,
   },
   status: {
-    type: Boolean,
+    type: String, // pending, canceled, approved
     required: true,
   },
   adoptionCode: {
@@ -15,6 +15,10 @@ const schema = new mongoose.Schema({
     required: true,
   },
   user: {
+    ref: "User",
+    type: Schema.Types.ObjectId,
+  },
+  rescuer: {
     ref: "User",
     type: Schema.Types.ObjectId,
   },

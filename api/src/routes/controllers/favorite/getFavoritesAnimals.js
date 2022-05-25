@@ -1,10 +1,9 @@
 const User = require("../../../models/user");
-const { authorizationToken } = require("../authorization/authorization");
 
 const getFavoritesAnimals = (req, res) => {
-  const decodedToken = authorizationToken(req, res);
+  const { userId } = req.user;
 
-  User.findById(decodedToken.id)
+  User.findById(userId)
     .populate({
       path: "favoritesAnimals",
       model: "Animal",
@@ -14,7 +13,7 @@ const getFavoritesAnimals = (req, res) => {
     })
     .catch((error) => {
       console.log(error);
-      res.json({ error: "This user doesn't exist" });
+      res.json({ success: false, error: "This user doesn't exist" });
     });
 };
 

@@ -1,14 +1,15 @@
 const User = require("../../../models/user");
-const { authorizationToken } = require("../authorization/authorization");
 
 const updateUser = (req, res) => {
   let newInfo = req.body;
+  const { userId } = req.user;
 
-  const decodedToken = authorizationToken(req, res);
-
-  User.findByIdAndUpdate(decodedToken.id, newInfo, { new: true })
+  User.findByIdAndUpdate(userId, newInfo, { new: true })
     .then((result) => {
-      res.json({ user: result });
+      res.json({
+        success: true,
+        user: result,
+      });
     })
     .catch((error) => {
       console.log(error);

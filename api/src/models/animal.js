@@ -34,6 +34,10 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  adoptedStatus: {
+    type: Boolean,
+    default: false,
+  },
   user: {
     ref: "User",
     type: Schema.Types.ObjectId,

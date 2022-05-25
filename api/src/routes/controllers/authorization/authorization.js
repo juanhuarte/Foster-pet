@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const { JWT_SECRET } = process.env;
 
-const authorizationToken = (req, res) => {
+const authorizationToken = (req, res, next) => {
   const authorization = req.get("authorization");
   let token = "";
   if (authorization && authorization.toLowerCase().startsWith("bearer")) {
@@ -19,7 +19,12 @@ const authorizationToken = (req, res) => {
   if (!token || !decodedToken.id) {
     return res.status(401).json({ error: "token missing or invalid" });
   }
-  return decodedToken;
+  req.user = {
+    userId: decodedToken.id,
+    mail: decodedToken.mail,
+  };
+  next();
+  //return decodedToken;
 };
 
 module.exports = { authorizationToken };
