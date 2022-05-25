@@ -1,21 +1,19 @@
 const User = require("../../../models/user");
-const { authorizationToken } = require("../authorization/authorization");
 
 const deleteFavoriteAnimal = async (req, res) => {
-  const decodedToken = authorizationToken(req, res);
+  const { userId } = req.user;
   const { id } = req.params;
-
-  const user = await User.findById(decodedToken.id).populate({
-    path: "favoritesAnimals",
-    model: "Animal",
-  });
-
   try {
+    const user = await User.findById(userId).populate({
+      path: "favoritesAnimals",
+      model: "Animal",
+    });
+
     user.favoritesAnimals = user.favoritesAnimals.filter(
       (animal) => animal._id.toString() !== id
     );
     let savedUser = await user.save();
-    res.json({ favoritesAnimals: savedUser.favoritesAnimals });
+    res.json({ success: true, favoritesAnimals: savedUser.favoritesAnimals });
   } catch (error) {
     throw new Error(error);
   }

@@ -1,0 +1,8 @@
+PUT  http://localhost:3001/adopt/request/628d5c3dbfd965cb10ff9f9e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOGQwOTQ4MTk4YmQ4ODM2NzJjMzFhZiIsIm1haWwiOiJqdWFuQGdtYWlsLmNvbSIsImlhdCI6MTY1MzQzMjIwN30.Aw-2FooEjxOhVdGF5j_Sv7YkrAi4Wi5YI48X1ajMMm0
+
+{
+    "status": "approved"
+    //"status": "canceled"
+}

@@ -1,14 +1,14 @@
 POST http://localhost:3001/animal
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOGMxNzRhNTdjZTZkZTUyYTdjZjMzNSIsIm1haWwiOiJqdWFuQGdtYWlsLmNvbSIsImlhdCI6MTY1MzM1MjQ5OX0.frJqe8iptbsXvmxbw8OD8NBxL8khqRhOzyWcnmh1Q48
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOGQwOTQ4MTk4YmQ4ODM2NzJjMzFhZiIsIm1haWwiOiJqdWFuQGdtYWlsLmNvbSIsImlhdCI6MTY1MzQyMzQ3OX0.oZ70AA9Vm_1S2FvXOclfLfMLem00c9UyMuuUICNjt4A
 
 {
-    "type": "Cat",
+    "type": "Dog",
     "gender": "Male",
-    "age": "3 years",
-    "size": "Small",
-    "description": "My name is Oliva and I am a neutered male. My rescuer thinks I am about 3 years old.",
-    "temporaryName": "Oliva",
+    "age": "2 years",
+    "size": "medium",
+    "description": "My name is Chipaa and I am a neutered male. My rescuer thinks I am about 2 years old.",
+    "temporaryName": "Chipa",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTst-ZhrNnLykIfO77sofsbnDd-CuQsEV8xzw&usqp=CAU",
     "location": "-38.94979895445034 -68.04452851658687"
 }

@@ -1,13 +1,16 @@
 const Animal = require("../../../models/animal");
 
 const getAnimals = (req, res) => {
-  Animal.find({})
+  Animal.find({ adoptedStatus: false })
     .then((result) => {
       res.json(result);
     })
     .catch((error) => {
       console.log(error);
-      res.json({ error: "Error trying to find all the animals" });
+      res.json({
+        success: false,
+        error: "Error trying to find all the animals",
+      });
     });
 };
 

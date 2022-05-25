@@ -1,0 +1,3 @@
+GET  http://localhost:3001/adopt/request
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOGQwOTQ4MTk4YmQ4ODM2NzJjMzFhZiIsIm1haWwiOiJqdWFuQGdtYWlsLmNvbSIsImlhdCI6MTY1MzQxNDg3OX0.5GFCff67gihYo2AkH8wnh4zJHoDGyHr8abVJO7xtpco

@@ -1,0 +1,8 @@
+PUT  http://localhost:3001/adopt/628d5c3dbfd965cb10ff9f9e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOGQwOWU4MTk4YmQ4ODM2NzJjMzFiOSIsIm1haWwiOiJwYXVAZ21haWwuY29tIiwiaWF0IjoxNjUzNDI5NzgyfQ.YnxqLIRRBWPZBn3q1iNw3td72O1sU8wSq9SmYkSf9Zw
+
+{
+    "date": "23-05-2022",
+    "adoptionCode": "1235"
+}

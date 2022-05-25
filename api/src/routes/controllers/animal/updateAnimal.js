@@ -1,18 +1,16 @@
 const Animal = require("../../../models/animal");
-const { authorizationToken } = require("../authorization/authorization");
 
 const updateAnimal = (req, res) => {
-  authorizationToken(req, res);
   const { id } = req.params;
   let newInfo = req.body;
 
   Animal.findByIdAndUpdate(id, newInfo, { new: true })
     .then((result) => {
-      res.json({ animal: result });
+      res.json({ success: true, animal: result });
     })
     .catch((error) => {
       console.log(error);
-      res.json({ error: "Couldn't update this animal" });
+      res.json({ success: false, error: "Couldn't update this animal" });
     });
 };
 
