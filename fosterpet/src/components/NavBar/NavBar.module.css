@@ -1,0 +1,26 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(10, 10vw);
+  position: fixed;
+}
+
+.home {
+  text-decoration: none;
+  grid-column: 7/8;
+  text-decoration: none;
+}
+
+.favorites {
+  text-decoration: none;
+  grid-column: 8/9;
+}
+
+.adoptions {
+  text-decoration: none;
+  grid-column: 9/10;
+}
+
+.user {
+  text-decoration: none;
+  grid-column: 10/11;
+}
