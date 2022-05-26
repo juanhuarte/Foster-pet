@@ -1,14 +1,21 @@
-POST http://localhost:3001/animal
+POST https://foster-pet.herokuapp.com/animal
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOGQwOTQ4MTk4YmQ4ODM2NzJjMzFhZiIsIm1haWwiOiJqdWFuQGdtYWlsLmNvbSIsImlhdCI6MTY1MzQyMzQ3OX0.oZ70AA9Vm_1S2FvXOclfLfMLem00c9UyMuuUICNjt4A
 
 {
-    "type": "Dog",
+    "type": "Cat",
     "gender": "Male",
-    "age": "2 years",
-    "size": "medium",
-    "description": "My name is Chipaa and I am a neutered male. My rescuer thinks I am about 2 years old.",
-    "temporaryName": "Chipa",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTst-ZhrNnLykIfO77sofsbnDd-CuQsEV8xzw&usqp=CAU",
+    "age": "6 month",
+    "size": "small",
+    "description": "My name is vaca and I am a neutered male. My rescuer thinks I am less than 1 years old.",
+    "temporaryName": "vaca",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4zhzN1Kmo0lxYXAfoZN_VTB_YtEQ2ZAIeew&usqp=CAU",
     "location": "-38.94979895445034 -68.04452851658687"
 }
+
+//https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdFb9-hQvRVUJ0ijLgBi16fneBRUWOF8wdvA&usqp=CAU
+//https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTst-ZhrNnLykIfO77sofsbnDd-CuQsEV8xzw&usqp=CAU
+
+//https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbJeBNqYD-e2hIp-dXzWC2y3PHecpNxShpXQ&usqp=CAU
+//https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpieYOSg5rQYUs40vCPruepcJA6Q3qWF-58g&usqp=CAU
+//https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4zhzN1Kmo0lxYXAfoZN_VTB_YtEQ2ZAIeew&usqp=CAU
