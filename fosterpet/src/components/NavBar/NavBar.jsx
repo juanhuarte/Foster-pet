@@ -14,6 +14,9 @@ export default function NavBar() {
       <NavLink className={styles.adoptions} to="/adoptions">
         <h3>Adoptions</h3>
       </NavLink>
+      <NavLink className={styles.rescue} to="/rescue">
+        <h3>Rescue Pet</h3>
+      </NavLink>
       <NavLink className={styles.user} to="/signin">
         <BiUserCircle
           size="40"

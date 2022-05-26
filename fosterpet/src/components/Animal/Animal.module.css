@@ -21,11 +21,33 @@
 
 .title {
   color: var(--primary-font-color);
+  margin-bottom: -0.5vh;
 }
 
 .text {
   color: var(--primary-font-color);
   text-align: justify;
-  padding-left: 0.5vw;
-  padding-right: 0.5vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+.text1 {
+  color: var(--primary-font-color);
+  padding-left: 1.2vw;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -3vh;
+  gap: 2.5vw;
+}
+
+.icon {
+  margin-top: "1vh";
+  cursor: pointer;
+  background-color: transparent;
+  border-color: transparent;
 }

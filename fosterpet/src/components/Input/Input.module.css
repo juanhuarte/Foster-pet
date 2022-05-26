@@ -1,0 +1,22 @@
+/* .container{
+    display: ;
+} */
+
+.input {
+  border-width: 2px;
+  border-radius: 10px;
+  width: 20vw;
+  height: 3vh;
+  /* margin-left: 15vw; */
+  margin-top: 4vh;
+  padding-left: 0.8vw;
+}
+.text {
+  /* display: flex; */
+  color: red;
+  font-size: 1.5vh;
+  /* margin-left: 16vw;
+  margin-bottom: -2vh; */
+  /* align-items: flex-start;
+  justify-content: flex-start; */
+}
