@@ -5,3 +5,8 @@ export const inputArray = [
   { name: "password", type: "password", placeholder: "Password" },
   { name: "location", type: "text", placeholder: "Location" },
 ];
+
+export const loginArray = [
+  { name: "mail", type: "email", placeholder: "Mail" },
+  { name: "password", type: "password", placeholder: "Password" },
+];

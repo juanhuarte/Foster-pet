@@ -1,3 +1,16 @@
 .App {
   text-align: center;
+  /* display: flex;
+  flex-direction: column; */
+  /* display: grid;
+  grid-row: 1/5; */
 }
+
+/* .nav {
+  grid-row: 1/2;
+  margin-bottom: 10vh;
+}
+
+.home {
+  grid-row: 2/5;
+} */

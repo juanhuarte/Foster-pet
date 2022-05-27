@@ -1,7 +1,10 @@
 .container {
   display: grid;
   grid-template-columns: repeat(10, 10vw);
-  position: fixed;
+  /* position: fixed; */
+  grid-row: 1/2;
+  margin-bottom: 5vh;
+  background-color: var(--scroll-bar-color);
 }
 
 .home {

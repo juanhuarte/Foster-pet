@@ -1,6 +1,6 @@
 import styles from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { BiUserCircle } from "react-icons/bi";
+import DropdownUser from "../Dropdown/Dropdown";
 
 export default function NavBar() {
   return (
@@ -17,16 +17,7 @@ export default function NavBar() {
       <NavLink className={styles.rescue} to="/rescue">
         <h3>Rescue Pet</h3>
       </NavLink>
-      <NavLink className={styles.user} to="/signin">
-        <BiUserCircle
-          size="40"
-          style={{
-            color: "#00b4d8",
-            marginTop: "2vh",
-            marginRight: "1vw",
-          }}
-        />
-      </NavLink>
+      <DropdownUser className={styles.user} />
     </div>
   );
 }
