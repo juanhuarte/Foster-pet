@@ -20,9 +20,14 @@ export const loginArray = [
 // ];
 
 export const edituser = [
-  { name: "name", type: "text", placeholder: "First Name" },
-  { name: "lastname", type: "text", placeholder: "Last Name" },
-  { name: "mail", type: "email", placeholder: "Mail" },
+  { name: "name", type: "text", placeholder: "First Name", enableButton: true },
+  {
+    name: "lastname",
+    type: "text",
+    placeholder: "Last Name",
+    enableButton: true,
+  },
+  { name: "mail", type: "email", placeholder: "Mail", enableButton: true },
 ];
 
 export const changepassword = [
