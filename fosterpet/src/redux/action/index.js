@@ -9,6 +9,8 @@ export const SIGN_OUT = "SIGN_OUT";
 export const CREATE_ADOPTION = "CREATE_ADOPTION";
 export const EDIT_USER_INFO = "EDIT_USER_INFO";
 export const CHANGE_USER_PASSWORD = "CHANGE_USER_PASSWORD";
+export const GET_ADOPTIONS = "GET_ADOPTIONS";
+export const CANCEL_ADOPTION = "CANCEL_ADOPTION";
 
 export const getAnimals = () => {
   return async (dispatch) => {
@@ -144,6 +146,36 @@ export const createAdoption = (inputData) => {
       dispatch({
         type: CREATE_ADOPTION,
         payload: data.success,
+      });
+    } catch (error) {
+      console.log(error);
+      throw new Error(error);
+    }
+  };
+};
+
+export const getAdoptions = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get("adopt");
+      dispatch({
+        type: GET_ADOPTIONS,
+        payload: data.adoptionHistory,
+      });
+    } catch (error) {
+      console.log(error);
+      throw new Error(error);
+    }
+  };
+};
+
+export const updateAdoption = ({ id, status }) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.put(`/adopt/request/${id}`, { status });
+      dispatch({
+        type: CANCEL_ADOPTION,
+        payload: data,
       });
     } catch (error) {
       console.log(error);

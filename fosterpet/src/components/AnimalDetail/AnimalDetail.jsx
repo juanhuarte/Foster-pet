@@ -1,8 +1,8 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import { useAnimalDetail } from "../CustomHooks/useAnimalDetail";
 import styles from "./AnimalDetail.module.css";
-import { createAdoption } from "../../redux/action/index";
+import { createAdoption, getAdoptions } from "../../redux/action/index";
 import { useValidation } from "../CustomHooks/useValidation";
 
 const AnimalDetail = () => {
@@ -11,8 +11,10 @@ const AnimalDetail = () => {
   const history = useHistory();
   const validation = useValidation();
   const animal = useAnimalDetail(id);
+  const adoptions = useSelector((state) => state.adoptions);
+
   const handleClick = () => {
-    if (validation)
+    if (validation) {
       dispatch(
         createAdoption({
           date: new Date().toLocaleDateString(),
@@ -21,7 +23,9 @@ const AnimalDetail = () => {
           animal: id,
         })
       );
-    else history.push("/signin");
+      dispatch(getAdoptions());
+      alert("Request Sent");
+    } else history.push("/signin");
   };
   return (
     <div className={styles.detail}>
@@ -54,7 +58,13 @@ const AnimalDetail = () => {
           <img className={styles.img} src={animal.image} alt="AnimalImg" />
         </div>
         <div className={styles.adopt}>
-          <button className={styles.btn} onClick={handleClick}>
+          <button
+            className={styles.btn}
+            onClick={handleClick}
+            disabled={
+              adoptions?.find((adopt) => adopt.animal === id) ? true : false
+            }
+          >
             Adopt
           </button>
         </div>

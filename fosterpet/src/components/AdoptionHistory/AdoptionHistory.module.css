@@ -1,0 +1,26 @@
+.adoptions {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  /* margin-bottom: 5vh; */
+}
+
+.list {
+  overflow-y: scroll;
+  border-style: none;
+  border-radius: 0.5rem;
+  width: 50vw;
+  height: 60vh;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  margin-left: 5vw;
+}
+
+.title {
+  color: var(--primary-font-color);
+  font-size: 3.5vh;
+  height: 5vh;
+}

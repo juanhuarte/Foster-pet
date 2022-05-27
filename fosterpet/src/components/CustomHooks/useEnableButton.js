@@ -10,6 +10,7 @@ export const useEnableButton = (input) => {
       else if (element.error) ++count;
     });
     if (count === 0) setEnableButton(false);
+    if (input[0].hasOwnProperty("enableButton")) setEnableButton(false);
     else setEnableButton(true);
     count = 0;
   }, [input]);

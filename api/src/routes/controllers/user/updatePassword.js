@@ -18,7 +18,8 @@ const updatePassword = async (req, res) => {
       })
     );
     res.send({
-      success: "Password has benn changed successfully",
+      success: true,
+      message: "Password has benn changed successfully",
     });
   } else {
     res.send({ success: false, error: "wrong password" });

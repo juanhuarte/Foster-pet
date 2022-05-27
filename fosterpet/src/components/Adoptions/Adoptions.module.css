@@ -1,0 +1,32 @@
+.detail {
+  background-image: url(../../Images/bkDetail.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100vw;
+  height: 90vh;
+}
+
+.bkg {
+  width: 100vw;
+  height: 90vh;
+  backdrop-filter: blur(6px);
+}
+
+.container {
+  width: 60vw;
+  height: 80vh;
+  position: absolute;
+  margin: 5vh 20vw;
+  overflow: hidden;
+  top: 0;
+  border-radius: 1.5rem;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  border-radius: 1rem;
+  background-color: rgba(63, 60, 60, 0.7);
+  /* display: grid;
+    grid-template-columns: repeat(3, 20vw);
+    grid-template-rows: repeat(11, 1fr); */
+}

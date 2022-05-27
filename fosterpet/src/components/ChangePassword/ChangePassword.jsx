@@ -2,13 +2,15 @@ import { changepassword } from "../Input/dataInput";
 import { changeUserPassword } from "../../redux/action/index";
 import styles from "../Login/Login.module.css";
 import Form from "../Form/Form";
+import { useEdit } from "../CustomHooks/useEdit";
 
 const ChangePassword = ({ onPress }) => {
   //   let errorMessage = useLogin();
+  let statusChange = useEdit();
   return (
     <div className={styles.container}>
       <Form
-        title="Change Password"
+        title="Change"
         inputArray={changepassword}
         actionCreator={changeUserPassword}
       />

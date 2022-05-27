@@ -9,16 +9,20 @@ import User from "./components/User/User";
 import NavBar from "./components/NavBar/NavBar";
 import { useValidation } from "./components/CustomHooks/useValidation";
 import Favorites from "./components/Favorites/Favorites";
-import { getFavorites } from "./redux/action/index";
+import { getFavorites, getAdoptions } from "./redux/action/index";
 import AnimalDetail from "./components/AnimalDetail/AnimalDetail";
 import EditUser from "./components/EditUser/EditUser";
+import Adoptions from "./components/Adoptions/Adoptions";
 
 const { REACT_APP_API } = process.env;
 
 function App() {
   const dispatch = useDispatch();
   const validation = useValidation();
-  if (validation) dispatch(getFavorites());
+  if (validation) {
+    dispatch(getFavorites());
+    dispatch(getAdoptions());
+  }
 
   useEffect(() => {
     dispatch(getAnimals());
@@ -50,6 +54,11 @@ function App() {
         exact
         path="/edituser"
         render={() => (validation ? <EditUser /> : <Redirect to="/signin" />)}
+      />
+      <Route
+        exact
+        path="/adoptions"
+        render={() => (validation ? <Adoptions /> : <Redirect to="/signin" />)}
       />
     </div>
   );
