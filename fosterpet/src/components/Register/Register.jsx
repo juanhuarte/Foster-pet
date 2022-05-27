@@ -9,7 +9,7 @@ import Form from "../Form/Form";
 
 const Register = ({ onPress }) => {
   return (
-    <div>
+    <div className={styles.container}>
       <Form
         title="Sign Up"
         inputArray={inputArray}

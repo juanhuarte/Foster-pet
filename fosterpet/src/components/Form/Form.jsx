@@ -23,7 +23,7 @@ const Form = ({ title, inputArray, actionCreator, onPress }) => {
     setInput(inputArray);
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <h1>{title}</h1>
       {input?.map((element, i) => (
         <Input

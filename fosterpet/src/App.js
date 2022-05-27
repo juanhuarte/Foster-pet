@@ -10,6 +10,8 @@ import NavBar from "./components/NavBar/NavBar";
 import { useValidation } from "./components/CustomHooks/useValidation";
 import Favorites from "./components/Favorites/Favorites";
 import { getFavorites } from "./redux/action/index";
+import AnimalDetail from "./components/AnimalDetail/AnimalDetail";
+import EditUser from "./components/EditUser/EditUser";
 
 const { REACT_APP_API } = process.env;
 
@@ -31,6 +33,9 @@ function App() {
       <Route exact path="/signin">
         <User />
       </Route>
+      <Route exact path="/animal/:id">
+        <AnimalDetail />
+      </Route>
       {/* {validation && (
         <Route exact path="/favorites">
           <Favorites />
@@ -40,6 +45,11 @@ function App() {
         exact
         path="/favorites"
         render={() => (validation ? <Favorites /> : <Redirect to="/signin" />)}
+      />
+      <Route
+        exact
+        path="/edituser"
+        render={() => (validation ? <EditUser /> : <Redirect to="/signin" />)}
       />
     </div>
   );

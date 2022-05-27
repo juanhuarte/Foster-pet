@@ -1,12 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 15vw;
+}
+
 .account {
   display: flex;
   flex-direction: row;
-  /* margin-left: 18vw; */
-  margin-left: 43vw;
   margin-top: 4vh;
 }
 
-.button {
+.button,
+.buttonU {
   border-width: 0px;
   background-color: white;
   color: blue;
@@ -20,8 +26,10 @@
   display: flex;
   color: red;
   font-size: 1.8vh;
-  margin-left: 47.5vw;
   margin-bottom: -2vh;
   align-items: flex-start;
   justify-content: flex-start;
+}
+.buttonU {
+  margin-left: -1vw;
 }

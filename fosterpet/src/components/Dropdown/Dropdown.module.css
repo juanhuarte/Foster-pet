@@ -3,3 +3,7 @@
   background-color: transparent;
   cursor: pointer;
 }
+
+.menu {
+  position: fixed;
+}

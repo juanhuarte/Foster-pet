@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.img {
+  width: 50vw;
+  height: 90vh;
+  overflow-x: hidden;
+  justify-content: flex-start;
+  display: flex;
+}

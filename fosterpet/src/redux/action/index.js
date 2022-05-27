@@ -6,6 +6,9 @@ export const ADD_FAVORITE = "ADD_FAVORITE";
 export const GET_FAVORITES = "GET_FAVORITES";
 export const DELETE_FAV = "DELETE_FAV";
 export const SIGN_OUT = "SIGN_OUT";
+export const CREATE_ADOPTION = "CREATE_ADOPTION";
+export const EDIT_USER_INFO = "EDIT_USER_INFO";
+export const CHANGE_USER_PASSWORD = "CHANGE_USER_PASSWORD";
 
 export const getAnimals = () => {
   return async (dispatch) => {
@@ -44,6 +47,36 @@ export const signIn = (inputDate) => {
       );
       dispatch({
         type: SIGN_IN,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+      throw new Error(error);
+    }
+  };
+};
+
+export const editUserInfo = (newInfo) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.put("user", newInfo);
+      dispatch({
+        type: EDIT_USER_INFO,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+      throw new Error(error);
+    }
+  };
+};
+
+export const changeUserPassword = (newInfo) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.put("user/password", newInfo);
+      dispatch({
+        type: CHANGE_USER_PASSWORD,
         payload: data,
       });
     } catch (error) {
@@ -101,5 +134,20 @@ export const deleteFav = (id) => {
 export const signOut = () => {
   return {
     type: SIGN_OUT,
+  };
+};
+
+export const createAdoption = (inputData) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.post("/adopt", inputData);
+      dispatch({
+        type: CREATE_ADOPTION,
+        payload: data.success,
+      });
+    } catch (error) {
+      console.log(error);
+      throw new Error(error);
+    }
   };
 };

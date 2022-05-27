@@ -28,28 +28,35 @@ const DropdownUser = () => {
   };
   return (
     <div>
-      <Dropdown isOpen={dropdown} toggle={openCloseDrop} size="sm">
+      <Dropdown
+        isOpen={dropdown}
+        toggle={openCloseDrop}
+        size="sm"
+        direction="down"
+      >
         <DropdownToggle className={styles.iconButton} caret>
           <BiUserCircle
             size="40"
             style={{
-              color: "#00b4d8",
+              color: "#584444", //"#00b4d8",
               marginTop: "2vh",
               marginRight: "1vw",
             }}
           />
         </DropdownToggle>
-        {dropdown && (
-          <DropdownMenu>
-            {token ? (
-              <DropdownItem onClick={() => signOutUser()}>
-                Sign Out
-              </DropdownItem>
-            ) : (
-              <DropdownItem onClick={() => history.push("/signin")}>
-                Sign In
-              </DropdownItem>
-            )}
+        {dropdown && token && (
+          <DropdownMenu className={styles.menu}>
+            <DropdownItem onClick={() => signOutUser()}>Sign Out</DropdownItem>
+            <DropdownItem onClick={() => history.push("/edituser")}>
+              Edit
+            </DropdownItem>
+          </DropdownMenu>
+        )}
+        {dropdown && !token && (
+          <DropdownMenu className={styles.menu}>
+            <DropdownItem onClick={() => history.push("/signin")}>
+              Sign In
+            </DropdownItem>
           </DropdownMenu>
         )}
       </Dropdown>

@@ -18,7 +18,7 @@ export function validation(name, value) {
     !/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/.test(value)
   )
     errorMessage =
-      "Between 8 and 16 characters, must include (Uppercase, Lowercase, Numbers)";
+      "Between 8 and 16 characters (Uppercase, Lowercase, Numbers)";
   if (name === "location" && value.length === 0)
     errorMessage = "Location is required";
   return errorMessage;

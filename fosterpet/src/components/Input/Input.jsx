@@ -50,9 +50,12 @@ const Input = ({ type, name, placeholder, id, setInput, input }) => {
         value={eachInput.value}
         onChange={handleChange}
       />
-      {eachInput.errorMessage.length > 0 && (
+      <p className={styles.text}>
+        {eachInput.errorMessage.length > 0 ? eachInput.errorMessage : ""}
+      </p>
+      {/* {eachInput.errorMessage.length > 0 && (
         <p className={styles.text}>{eachInput.errorMessage}</p>
-      )}
+      )} */}
     </div>
   );
 };
