@@ -6,6 +6,9 @@ import {
   GET_FAVORITES,
   DELETE_FAV,
   SIGN_OUT,
+  CREATE_ADOPTION,
+  EDIT_USER_INFO,
+  CHANGE_USER_PASSWORD,
 } from "../action/index";
 const initialState = {
   animals: [],
@@ -18,6 +21,7 @@ const initialState = {
     : null,
   message: null,
   favorites: [],
+  success: false,
 };
 
 function rootReducer(state = initialState, { type, payload }) {
@@ -55,6 +59,19 @@ function rootReducer(state = initialState, { type, payload }) {
         user: {},
         token: null,
       };
+    case CREATE_ADOPTION:
+      return {
+        ...state,
+        message: payload,
+      };
+    case EDIT_USER_INFO:
+      return {
+        ...state,
+        user: payload.user,
+        success: payload.success,
+      };
+    case CHANGE_USER_PASSWORD:
+      return { ...state, success: payload };
     default:
       return state;
   }

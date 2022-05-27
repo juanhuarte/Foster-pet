@@ -1,3 +1,4 @@
+import imgLogin from "../../Images/signup.jpg";
 import { useState } from "react";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
@@ -13,7 +14,7 @@ const User = () => {
 
   return (
     <div className={styles.container}>
-      {/* <img className={styles.img} src={frontPage} alt="login" /> */}
+      <img className={styles.img} src={imgLogin} alt="login" />
       {press ? <Login onPress={onPress} /> : <Register onPress={onPress} />}
     </div>
   );

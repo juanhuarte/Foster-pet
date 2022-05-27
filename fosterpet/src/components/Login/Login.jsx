@@ -7,9 +7,10 @@ import { useLogin } from "../CustomHooks/useLogin";
 const Login = ({ onPress }) => {
   let errorMessage = useLogin();
   return (
-    <div>
+    <div className={styles.container}>
       <Form title="Sign In" inputArray={loginArray} actionCreator={signIn} />
-      {errorMessage && <p className={styles.text}>{errorMessage}</p>}
+      <p className={styles.text}>{errorMessage ? errorMessage : ""}</p>
+      {/* {errorMessage && <p className={styles.text}>{errorMessage}</p>} */}
       <div className={styles.account}>
         <p>Don't have an account?</p>
         <button className={styles.button} onClick={(e) => onPress(e, false)}>

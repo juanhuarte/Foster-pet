@@ -1,12 +1,18 @@
 .container {
   display: grid;
   grid-template-columns: repeat(10, 10vw);
-  /* position: fixed; */
+  grid-template-rows: 10vh;
   grid-row: 1/2;
-  margin-bottom: 5vh;
+  /* margin-bottom: 5vh; */
   background-color: var(--scroll-bar-color);
 }
 
+.home,
+.favorites,
+.rescue,
+.adoptions {
+  color: var(--navBar-color);
+}
 .home {
   text-decoration: none;
   grid-column: 6/7;
