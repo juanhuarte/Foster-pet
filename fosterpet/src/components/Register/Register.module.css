@@ -1,0 +1,16 @@
+.account {
+  display: flex;
+  flex-direction: row;
+  margin-left: 43vw;
+  margin-top: 4vh;
+}
+
+.button {
+  border-width: 0px;
+  background-color: white;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 1vw;
+  margin-top: 1vh;
+}

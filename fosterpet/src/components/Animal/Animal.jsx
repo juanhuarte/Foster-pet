@@ -1,10 +1,23 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Animal.module.css";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { useValidation } from "../CustomHooks/useValidation";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
+import { addFavorite, deleteFav } from "../../redux/action/index";
+import { useFavorites } from "../CustomHooks/useFavorites";
+import { useEffect, useState } from "react";
 
 export default function Animal({ gender, size, image, temporaryName, id }) {
+  const validation = useValidation();
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const isFav = useFavorites(id);
   const handleClick = (e) => {
-    e.preventDefault();
+    if (validation) {
+      if (!isFav) dispatch(addFavorite(id));
+      else dispatch(deleteFav(id));
+    } else history.push("/signin");
   };
   return (
     <div className={styles.container}>
@@ -21,15 +34,27 @@ export default function Animal({ gender, size, image, temporaryName, id }) {
         <p className={styles.text1}>{size}</p>
       </div>
       <button onClick={handleClick} className={styles.icon}>
-        <AiOutlineHeart
-          size="25"
-          style={{
-            color: "#f8edeb",
-            backgroundColor: "none",
-            marginTop: "1vh",
-            // marginRight: "1vw",
-          }}
-        />
+        {!isFav ? (
+          <AiOutlineHeart
+            size="25"
+            style={{
+              color: "#f8edeb",
+              backgroundColor: "none",
+              marginTop: "1vh",
+              // marginRight: "1vw",
+            }}
+          />
+        ) : (
+          <AiFillHeart
+            size="25"
+            style={{
+              color: "#d62828",
+              backgroundColor: "none",
+              marginTop: "1vh",
+              // marginRight: "1vw",
+            }}
+          />
+        )}
       </button>
     </div>
   );

@@ -1,15 +1,11 @@
 import styles from "./Animals.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 import Loading from "../Loading/Loading";
 import Animal from "../Animal/Animal";
 
-const Animals = () => {
-  const animalsCopy = useSelector((state) => state.animalsCopy);
-
-  return animalsCopy ? (
+const Animals = ({ animalsArray }) => {
+  return animalsArray ? (
     <div className={styles.container}>
-      {animalsCopy?.map((animal) => (
+      {animalsArray?.map((animal) => (
         <Animal
           key={animal.id}
           //   type={animal.type}

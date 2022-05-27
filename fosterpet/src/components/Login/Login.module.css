@@ -1,0 +1,27 @@
+.account {
+  display: flex;
+  flex-direction: row;
+  /* margin-left: 18vw; */
+  margin-left: 43vw;
+  margin-top: 4vh;
+}
+
+.button {
+  border-width: 0px;
+  background-color: white;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 1vw;
+  margin-top: 1vh;
+}
+
+.text {
+  display: flex;
+  color: red;
+  font-size: 1.8vh;
+  margin-left: 47.5vw;
+  margin-bottom: -2vh;
+  align-items: flex-start;
+  justify-content: flex-start;
+}

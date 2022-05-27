@@ -4,37 +4,25 @@ import Input from "../Input/Input";
 import { inputArray } from "../Input/dataInput";
 import { createUser } from "../../redux/action/index";
 import { useDispatch } from "react-redux";
+import styles from "./Register.module.css";
+import Form from "../Form/Form";
 
-const Register = () => {
-  const dispatch = useDispatch();
-  const [input, setInput] = useState(inputArray);
-  const enableButton = useEnableButton(input);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    let user = {};
-    input.forEach(
-      (element) => (user = { ...user, [element.name]: element.value })
-    );
-    dispatch(createUser(user));
-    setInput(inputArray);
-  };
+const Register = ({ onPress }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Sign Up</h1>
-      {input?.map((element, i) => (
-        <Input
-          key={i}
-          id={i}
-          name={element.name}
-          type={element.type}
-          placeholder={element.placeholder}
-          setInput={setInput}
-          input={input}
-        />
-      ))}
-      <button disabled={enableButton}>Sign Up</button>
-    </form>
+    <div>
+      <Form
+        title="Sign Up"
+        inputArray={inputArray}
+        actionCreator={createUser}
+        onPress={onPress}
+      />
+      <div className={styles.account}>
+        <p>Already have an account?</p>
+        <button className={styles.button} onClick={(e) => onPress(e, true)}>
+          Sign in
+        </button>
+      </div>
+    </div>
   );
 };
 export default Register;
