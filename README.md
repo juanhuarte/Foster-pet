@@ -23,3 +23,5 @@ Fostering gives dogs and cats the time, love and care they need to find forever 
 - Nodemailer
 
 * Delete and Edit an Animal
+
+* Responsive
