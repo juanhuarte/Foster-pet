@@ -1,19 +1,21 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import { useAnimalDetail } from "../CustomHooks/useAnimalDetail";
 import styles from "./AnimalDetail.module.css";
 import { createAdoption, getAdoptions } from "../../redux/action/index";
 import { useValidation } from "../CustomHooks/useValidation";
+import { useAdoption } from "../CustomHooks/useAdoption";
 
 const AnimalDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
   const validation = useValidation();
+  const enableButton = useAdoption(id);
   const animal = useAnimalDetail(id);
-  const adoptions = useSelector((state) => state.adoptions);
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     if (validation) {
       dispatch(
         createAdoption({
@@ -24,7 +26,6 @@ const AnimalDetail = () => {
         })
       );
       dispatch(getAdoptions());
-      alert("Request Sent");
     } else history.push("/signin");
   };
   return (
@@ -32,38 +33,36 @@ const AnimalDetail = () => {
       <div className={styles.bkg} />
       <div className={styles.container}>
         <div className={styles.name}>
-          <span className={styles.spanname}>{animal.temporaryName}</span>
+          <span className={styles.spanname}>{animal?.temporaryName}</span>
         </div>
         <div className={styles.gender}>
           <span className={styles.spanTitle}>Gender : </span>
-          <span className={styles.span}>{animal.gender}</span>
+          <span className={styles.span}>{animal?.gender}</span>
         </div>
         <div className={styles.size}>
           <span className={styles.spanTitle}>Size : </span>
-          <span className={styles.span}>{animal.size}</span>
+          <span className={styles.span}>{animal?.size}</span>
         </div>
         <div className={styles.age}>
           <span className={styles.spanTitle}>Age : </span>
-          <span className={styles.span}>{animal.age}</span>
+          <span className={styles.span}>{animal?.age}</span>
         </div>
         <div className={styles.type}>
           <span className={styles.spanTitle}>Type : </span>
-          <span className={styles.span}>{animal.type}</span>
+          <span className={styles.span}>{animal?.type}</span>
         </div>
         <div className={styles.description}>
           <span className={styles.spanTitle}>Description : </span>
-          <p className={styles.pDdescription}>{animal.description}</p>
+          <p className={styles.pDdescription}>{animal?.description}</p>
         </div>
         <div className={styles.imgcontainer}>
-          <img className={styles.img} src={animal.image} alt="AnimalImg" />
+          <img className={styles.img} src={animal?.image} alt="AnimalImg" />
         </div>
         <div className={styles.adopt}>
           <button
             className={styles.btn}
             onClick={handleClick}
-            disabled={
-              adoptions?.find((adopt) => adopt.animal === id) ? true : false
-            }
+            disabled={enableButton}
           >
             Adopt
           </button>

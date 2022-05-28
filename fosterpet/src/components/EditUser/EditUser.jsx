@@ -1,4 +1,3 @@
-import { useState } from "react";
 import imgSettings from "../../Images/signup.jpg";
 import ChangePassword from "../ChangePassword/ChangePassword";
 import ChangeUserData from "../ChangeUserData/ChangeUserData";

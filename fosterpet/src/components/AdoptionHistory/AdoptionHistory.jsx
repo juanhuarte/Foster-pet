@@ -22,7 +22,7 @@ const AdoptionHistory = () => {
             />
           ))
         ) : (
-          <p>You never make a request</p>
+          <p>You have never made a request</p>
         )}
       </div>
     </div>

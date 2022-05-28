@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useEffect } from "react";
 import { Route, Redirect } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getAnimals } from "./redux/action/index";
 import Home from "./components/Home/Home";
 import axios from "axios";
@@ -13,6 +13,7 @@ import { getFavorites, getAdoptions } from "./redux/action/index";
 import AnimalDetail from "./components/AnimalDetail/AnimalDetail";
 import EditUser from "./components/EditUser/EditUser";
 import Adoptions from "./components/Adoptions/Adoptions";
+import RescueAnimal from "./components/RescueAnimal/RescueAnimal";
 
 const { REACT_APP_API } = process.env;
 
@@ -40,11 +41,6 @@ function App() {
       <Route exact path="/animal/:id">
         <AnimalDetail />
       </Route>
-      {/* {validation && (
-        <Route exact path="/favorites">
-          <Favorites />
-        </Route>
-      )} */}
       <Route
         exact
         path="/favorites"
@@ -59,6 +55,13 @@ function App() {
         exact
         path="/adoptions"
         render={() => (validation ? <Adoptions /> : <Redirect to="/signin" />)}
+      />
+      <Route
+        exact
+        path="/rescue"
+        render={() =>
+          validation ? <RescueAnimal /> : <Redirect to="/signin" />
+        }
       />
     </div>
   );

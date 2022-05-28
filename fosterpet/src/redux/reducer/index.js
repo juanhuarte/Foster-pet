@@ -11,6 +11,7 @@ import {
   CHANGE_USER_PASSWORD,
   GET_ADOPTIONS,
   CANCEL_ADOPTION,
+  CREATE_ANIMAL,
 } from "../action/index";
 const initialState = {
   animals: [],
@@ -66,6 +67,7 @@ function rootReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         message: payload.success,
+        adoptions: [...state.adoptions, payload.data],
       };
     case EDIT_USER_INFO:
       return {
@@ -84,6 +86,13 @@ function rootReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         success: payload.success,
+      };
+    case CREATE_ANIMAL:
+      return {
+        ...state,
+        success: payload.success,
+        aniamls: [...state.animals, payload.data],
+        animalsCopy: [...state.animalsCopy, payload.data],
       };
     default:
       return state;

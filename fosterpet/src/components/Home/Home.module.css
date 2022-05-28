@@ -1,26 +1,22 @@
 .home {
-  /* display: grid;
-  grid-row: 2/5; */
   background-image: url(../../Images/bkDetail.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
   width: 100%;
-  height: 90%;
+  height: 87%;
   overflow-x: hidden;
 }
 
-/* .nav {
-  grid-row: 1/2;
-  margin-bottom: 10vh;
-} */
-
 .container {
+  margin-bottom: 5vh;
 }
 
-/* .animals {
-  grid-row: 4/5;
-} */
+.text {
+  color: black;
+  font-size: 4vh;
+  margin-top: 15vh;
+}
 
 ::-webkit-scrollbar {
   width: 7px;

@@ -42,20 +42,28 @@ const Input = ({ type, name, placeholder, id, setInput, input }) => {
   };
   return (
     <div className={styles.container}>
-      <input
-        type={type}
-        name={name}
-        placeholder={placeholder}
-        className={styles.input}
-        value={eachInput.value}
-        onChange={handleChange}
-      />
+      {name === "description" ? (
+        <textarea
+          type={type}
+          name={name}
+          placeholder={placeholder}
+          className={styles.textarea}
+          value={eachInput.value}
+          onChange={handleChange}
+        />
+      ) : (
+        <input
+          type={type}
+          name={name}
+          placeholder={placeholder}
+          className={styles.input}
+          value={eachInput.value}
+          onChange={handleChange}
+        />
+      )}
       <p className={styles.text}>
         {eachInput.errorMessage.length > 0 ? eachInput.errorMessage : ""}
       </p>
-      {/* {eachInput.errorMessage.length > 0 && (
-        <p className={styles.text}>{eachInput.errorMessage}</p>
-      )} */}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useEnableButton } from "../CustomHooks/useEnableButton";
 import styles from "./Form.module.css";
 import Input from "../Input/Input";
@@ -11,11 +11,11 @@ const Form = ({ title, inputArray, actionCreator, onPress }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let user = {};
+    let newData = {};
     input.forEach(
-      (element) => (user = { ...user, [element.name]: element.value })
+      (element) => (newData = { ...newData, [element.name]: element.value })
     );
-    dispatch(actionCreator(user));
+    dispatch(actionCreator(newData));
     if (title === "Sign Up") {
       alert("Usuario Creado");
       onPress(e, true);

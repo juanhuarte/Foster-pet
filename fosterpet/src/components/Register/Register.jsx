@@ -1,9 +1,5 @@
-import { useEffect, useState } from "react";
-import { useEnableButton } from "../CustomHooks/useEnableButton";
-import Input from "../Input/Input";
 import { inputArray } from "../Input/dataInput";
 import { createUser } from "../../redux/action/index";
-import { useDispatch } from "react-redux";
 import styles from "./Register.module.css";
 import Form from "../Form/Form";
 
