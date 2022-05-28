@@ -12,6 +12,7 @@ export const CHANGE_USER_PASSWORD = "CHANGE_USER_PASSWORD";
 export const GET_ADOPTIONS = "GET_ADOPTIONS";
 export const CANCEL_ADOPTION = "CANCEL_ADOPTION";
 export const CREATE_ANIMAL = "CREATE_ANIMAL";
+export const DELETE_ACOUNT = "DELETE_ACOUNT";
 
 export const getAnimals = () => {
   return async (dispatch) => {
@@ -81,6 +82,20 @@ export const changeUserPassword = (newInfo) => {
       dispatch({
         type: CHANGE_USER_PASSWORD,
         payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+      throw new Error(error);
+    }
+  };
+};
+
+export const deleteAcount = () => {
+  return async (dispatch) => {
+    try {
+      await axios.delete("/user");
+      dispatch({
+        type: DELETE_ACOUNT,
       });
     } catch (error) {
       console.log(error);

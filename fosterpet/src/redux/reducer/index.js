@@ -12,6 +12,7 @@ import {
   GET_ADOPTIONS,
   CANCEL_ADOPTION,
   CREATE_ANIMAL,
+  DELETE_ACOUNT,
 } from "../action/index";
 const initialState = {
   animals: [],
@@ -59,6 +60,7 @@ function rootReducer(state = initialState, { type, payload }) {
     case SIGN_OUT:
       return {
         ...state,
+        adoptions: [],
         favorites: [],
         user: {},
         token: null,
@@ -93,6 +95,10 @@ function rootReducer(state = initialState, { type, payload }) {
         success: payload.success,
         aniamls: [...state.animals, payload.data],
         animalsCopy: [...state.animalsCopy, payload.data],
+      };
+    case DELETE_ACOUNT:
+      return {
+        ...state,
       };
     default:
       return state;

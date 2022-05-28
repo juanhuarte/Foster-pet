@@ -3,7 +3,8 @@
   grid-template-columns: repeat(10, 10vw);
   grid-template-rows: 13vh;
   grid-row: 1/2;
-  background-color: var(--scroll-bar-color);
+  background-color: #faedcd;
+  /* var(--scroll-bar-color); */
 }
 
 .home,

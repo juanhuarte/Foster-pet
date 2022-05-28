@@ -14,7 +14,7 @@
 .button,
 .buttonU {
   border-width: 0px;
-  background-color: white;
+  background-color: transparent;
   color: blue;
   text-decoration: underline;
   cursor: pointer;
@@ -32,4 +32,25 @@
 }
 .buttonU {
   margin-left: -1vw;
+}
+
+.delete {
+  margin-top: 10vh;
+  cursor: pointer;
+  border-width: 2px;
+  border-radius: 10px;
+  border-color: var(--primary-error-color);
+  width: 8vw;
+  height: 3vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  margin-right: 1vw;
+}
+
+.delete:hover {
+  color: var(--primary-font-color);
+  border-color: black;
+  background-color: var(--primary-error-color);
 }

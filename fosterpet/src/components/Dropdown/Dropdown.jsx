@@ -23,7 +23,6 @@ const DropdownUser = () => {
 
   const signOutUser = () => {
     window.localStorage.removeItem("logUser");
-    window.localStorage.removeItem("animals");
     dispatch(signOut());
     history.push("/");
   };

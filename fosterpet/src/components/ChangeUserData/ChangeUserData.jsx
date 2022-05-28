@@ -3,9 +3,20 @@ import { editUserInfo } from "../../redux/action/index";
 import styles from "../Login/Login.module.css";
 import Form from "../Form/Form";
 import { useEdit } from "../CustomHooks/useEdit";
+import { deleteAcount, signOut } from "../../redux/action/index";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 
 const ChangeUserData = ({ onPress }) => {
   let statusChange = useEdit();
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const handleDelete = () => {
+    dispatch(deleteAcount());
+    dispatch(signOut());
+    window.localStorage.removeItem("logUser");
+    history.push("/");
+  };
   return (
     <div className={styles.container}>
       <Form
@@ -18,6 +29,9 @@ const ChangeUserData = ({ onPress }) => {
           Change Password
         </button>
       </div>
+      <button className={styles.delete} onClick={handleDelete}>
+        Delete Acount
+      </button>
     </div>
   );
 };
