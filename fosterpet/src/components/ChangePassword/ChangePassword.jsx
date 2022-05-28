@@ -5,7 +5,6 @@ import Form from "../Form/Form";
 import { useEdit } from "../CustomHooks/useEdit";
 
 const ChangePassword = ({ onPress }) => {
-  //   let errorMessage = useLogin();
   let statusChange = useEdit();
   return (
     <div className={styles.container}>
@@ -14,8 +13,6 @@ const ChangePassword = ({ onPress }) => {
         inputArray={changepassword}
         actionCreator={changeUserPassword}
       />
-      {/* <p className={styles.text}>{errorMessage ? errorMessage : ""}</p> */}
-      {/* {errorMessage && <p className={styles.text}>{errorMessage}</p>} */}
       <div className={styles.account}>
         <button className={styles.buttonU} onClick={(e) => onPress(e, true)}>
           Edit User

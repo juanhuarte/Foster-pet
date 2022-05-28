@@ -7,8 +7,8 @@
 }
 .img {
   margin-top: 1vh;
-  width: 30%;
-  height: 30%;
+  width: 25vh;
+  height: 20vh;
   object-fit: cover;
   border-radius: 0.5rem;
 }

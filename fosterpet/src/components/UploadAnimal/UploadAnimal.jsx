@@ -1,5 +1,3 @@
-import Form from "../Form/Form";
-
 const UploadAnimal = () => {
   return (
     <div className={styles.detail}>

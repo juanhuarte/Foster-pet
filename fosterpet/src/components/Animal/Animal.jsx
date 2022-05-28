@@ -2,11 +2,10 @@ import { NavLink } from "react-router-dom";
 import styles from "./Animal.module.css";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useValidation } from "../CustomHooks/useValidation";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { addFavorite, deleteFav } from "../../redux/action/index";
 import { useFavorites } from "../CustomHooks/useFavorites";
-import { useEffect, useState } from "react";
 
 export default function Animal({ gender, size, image, temporaryName, id }) {
   const validation = useValidation();
@@ -41,7 +40,6 @@ export default function Animal({ gender, size, image, temporaryName, id }) {
               color: "#f8edeb",
               backgroundColor: "none",
               marginTop: "1vh",
-              // marginRight: "1vw",
             }}
           />
         ) : (
@@ -51,7 +49,6 @@ export default function Animal({ gender, size, image, temporaryName, id }) {
               color: "#d62828",
               backgroundColor: "none",
               marginTop: "1vh",
-              // marginRight: "1vw",
             }}
           />
         )}

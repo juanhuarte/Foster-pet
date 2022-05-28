@@ -10,7 +10,6 @@ const Login = ({ onPress }) => {
     <div className={styles.container}>
       <Form title="Sign In" inputArray={loginArray} actionCreator={signIn} />
       <p className={styles.text}>{errorMessage ? errorMessage : ""}</p>
-      {/* {errorMessage && <p className={styles.text}>{errorMessage}</p>} */}
       <div className={styles.account}>
         <p>Don't have an account?</p>
         <button className={styles.button} onClick={(e) => onPress(e, false)}>

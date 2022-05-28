@@ -6,5 +6,4 @@ export const useEdit = () => {
   const success = useSelector((state) => state.success);
 
   if (success) history.push("/");
-  //   if (message) return message;
 };

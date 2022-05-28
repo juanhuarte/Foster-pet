@@ -5,5 +5,10 @@
 }
 
 .menu {
-  position: fixed;
+}
+
+.item {
+  margin-right: 0.5vw;
+  color: var(--navBar-color);
+  background-color: var(--primary-font-color);
 }

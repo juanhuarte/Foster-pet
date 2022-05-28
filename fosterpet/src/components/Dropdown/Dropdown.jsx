@@ -23,6 +23,7 @@ const DropdownUser = () => {
 
   const signOutUser = () => {
     window.localStorage.removeItem("logUser");
+    window.localStorage.removeItem("animals");
     dispatch(signOut());
     history.push("/");
   };
@@ -34,7 +35,7 @@ const DropdownUser = () => {
         size="sm"
         direction="down"
       >
-        <DropdownToggle className={styles.iconButton} caret>
+        <DropdownToggle className={styles.iconButton}>
           <BiUserCircle
             size="40"
             style={{
@@ -46,15 +47,23 @@ const DropdownUser = () => {
         </DropdownToggle>
         {dropdown && token && (
           <DropdownMenu className={styles.menu}>
-            <DropdownItem onClick={() => signOutUser()}>Sign Out</DropdownItem>
-            <DropdownItem onClick={() => history.push("/edituser")}>
+            <DropdownItem className={styles.item} onClick={() => signOutUser()}>
+              Sign Out
+            </DropdownItem>
+            <DropdownItem
+              className={styles.item}
+              onClick={() => history.push("/edituser")}
+            >
               Edit
             </DropdownItem>
           </DropdownMenu>
         )}
         {dropdown && !token && (
           <DropdownMenu className={styles.menu}>
-            <DropdownItem onClick={() => history.push("/signin")}>
+            <DropdownItem
+              className={styles.item}
+              onClick={() => history.push("/signin")}
+            >
               Sign In
             </DropdownItem>
           </DropdownMenu>

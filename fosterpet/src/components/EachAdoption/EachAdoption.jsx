@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useAnimalAdoption } from "../CustomHooks/useAnimalAdoption";
 import { updateAdoption, getAdoptions } from "../../redux/action/index";
 import styles from "./EachAdoption.module.css";
@@ -6,7 +6,7 @@ import styles from "./EachAdoption.module.css";
 const EachAdoption = ({ data }) => {
   const { date, status, rescuer, animal, id } = data;
   const dispatch = useDispatch();
-  const { temporaryName, image } = useAnimalAdoption(animal);
+  const dataAnimal = useAnimalAdoption(animal);
 
   const handleCancel = () => {
     if (status === "pending")
@@ -18,8 +18,8 @@ const EachAdoption = ({ data }) => {
 
   return (
     <div className={styles.container}>
-      <span className={styles.text}>{temporaryName}</span>
-      <img className={styles.img} src={image} alt="AnimalImg" />
+      <span className={styles.text}>{dataAnimal?.temporaryName}</span>
+      <img className={styles.img} src={dataAnimal?.image} alt="AnimalImg" />
       <span className={styles.text}>{date}</span>
       <span className={styles.text}>Status: {status}</span>
       {(status === "pending" || status === "cancel") && (
