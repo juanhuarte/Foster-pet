@@ -16,8 +16,6 @@ Fostering gives dogs and cats the time, love and care they need to find forever 
 
 - Geolocation
 
-- Diferent types of filters like: gender, type, size, location ....
-
 - Accept or decline adoption request
 
 - Nodemailer
