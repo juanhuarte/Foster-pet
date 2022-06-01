@@ -3,7 +3,7 @@ import Loading from "../Loading/Loading";
 import Animal from "../Animal/Animal";
 
 const Animals = ({ animalsArray }) => {
-  return animalsArray ? (
+  return animalsArray.length > 0 ? (
     <div className={styles.container}>
       {animalsArray?.map((animal) => (
         <Animal
