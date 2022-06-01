@@ -6,6 +6,8 @@ export const useValidation = () => {
   if (token) {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     return true;
+  } else {
+    axios.defaults.headers.common["Authorization"] = "";
+    return false;
   }
-  return false;
 };

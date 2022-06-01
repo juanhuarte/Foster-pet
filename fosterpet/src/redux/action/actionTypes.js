@@ -1,0 +1,16 @@
+export const GET_ANIMALS = "GET_ANIMALS";
+export const CREATE_USER = "CREATE_USER";
+export const SIGN_IN = "SIGN_IN";
+export const ADD_FAVORITE = "ADD_FAVORITE";
+export const GET_FAVORITES = "GET_FAVORITES";
+export const DELETE_FAV = "DELETE_FAV";
+export const SIGN_OUT = "SIGN_OUT";
+export const CREATE_ADOPTION = "CREATE_ADOPTION";
+export const EDIT_USER_INFO = "EDIT_USER_INFO";
+export const CHANGE_USER_PASSWORD = "CHANGE_USER_PASSWORD";
+export const GET_ADOPTIONS = "GET_ADOPTIONS";
+export const CANCEL_ADOPTION = "CANCEL_ADOPTION";
+export const CREATE_ANIMAL = "CREATE_ANIMAL";
+export const DELETE_ACOUNT = "DELETE_ACOUNT";
+export const FILTER = "FILTER";
+export const FILTER_FAVORITES = "FILTER_FAVORITES";

@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux";
 import Animals from "../Animals/Animals";
+import Filter from "../Filter/Filter";
 import styles from "../Home/Home.module.css";
+import { filterFav } from "../../redux/action/index";
 
 const Favorites = () => {
-  const favorites = useSelector((state) => state.favorites);
+  const favorites = useSelector((state) => state.favoritesCopy);
   return (
     <div className={styles.home}>
       {favorites.length === 0 && (
@@ -12,6 +14,7 @@ const Favorites = () => {
         </p>
       )}
       <div>
+        <Filter actionCreator={filterFav} />
         <Animals animalsArray={favorites} />;
       </div>
     </div>

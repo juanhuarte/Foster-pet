@@ -1,6 +1,5 @@
 import {
   GET_ANIMALS,
-  CREATE_USER,
   SIGN_IN,
   ADD_FAVORITE,
   GET_FAVORITES,
@@ -12,8 +11,10 @@ import {
   GET_ADOPTIONS,
   CANCEL_ADOPTION,
   CREATE_ANIMAL,
-  DELETE_ACOUNT,
-} from "../action/index";
+  FILTER,
+  FILTER_FAVORITES,
+} from "../action/actionTypes";
+import { filter } from "./filter";
 const initialState = {
   animals: [],
   animalsCopy: [],
@@ -25,6 +26,7 @@ const initialState = {
     : null,
   message: null,
   favorites: [],
+  favoritesCopy: [],
   success: false,
   adoptions: [],
 };
@@ -37,8 +39,6 @@ function rootReducer(state = initialState, { type, payload }) {
         animals: payload,
         animalsCopy: payload,
       };
-    case CREATE_USER:
-      return { ...state };
     case SIGN_IN:
       if (payload.message) return { ...state, message: payload.message };
       window.localStorage.setItem("logUser", JSON.stringify(payload));
@@ -54,6 +54,7 @@ function rootReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         favorites: payload,
+        favoritesCopy: payload,
       };
     case DELETE_FAV:
       return { ...state, favorites: payload };
@@ -62,6 +63,7 @@ function rootReducer(state = initialState, { type, payload }) {
         ...state,
         adoptions: [],
         favorites: [],
+        favoritesCopy: [],
         user: {},
         token: null,
       };
@@ -96,9 +98,15 @@ function rootReducer(state = initialState, { type, payload }) {
         aniamls: [...state.animals, payload.data],
         animalsCopy: [...state.animalsCopy, payload.data],
       };
-    case DELETE_ACOUNT:
+    case FILTER:
       return {
         ...state,
+        animalsCopy: filter(state.animals, payload),
+      };
+    case FILTER_FAVORITES:
+      return {
+        ...state,
+        favoritesCopy: filter(state.favorites, payload),
       };
     default:
       return state;

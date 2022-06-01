@@ -12,6 +12,20 @@ const answeringRequest = async (req, res) => {
       { new: true }
     );
     let findAndUpdateAnimal;
+    let boolean;
+    if (status === "approved") boolean = true;
+    else boolean = false;
+
+    findAndUpdateAnimal = await Animal.findByIdAndUpdate(
+      findAndUpdateAdoption.animal.toString(),
+      { adoptedStatus: boolean },
+      { new: true }
+    );
+    if (!findAndUpdateAnimal)
+      throw new Error("Couldn't update animal adoption status");
+    res.json({ success: true, message: `The request ${id} was answered` });
+    /*
+    
     if (status === "approved") {
       findAndUpdateAnimal = await Animal.findByIdAndUpdate(
         findAndUpdateAdoption.animal.toString(),
@@ -31,6 +45,7 @@ const answeringRequest = async (req, res) => {
         throw new Error("Couldn't update animal adoption status");
       res.json({ success: true, message: `The request ${id} was answered` });
     }
+    */
   } catch (error) {
     console.log(error);
     res.json({ error: error.message });
