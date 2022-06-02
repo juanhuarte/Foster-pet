@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useHistory, useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import { useAnimalDetail } from "../CustomHooks/useAnimalDetail";
 import styles from "./AnimalDetail.module.css";
 import { createAdoption, getAdoptions } from "../../redux/action/index";
@@ -9,7 +9,7 @@ import { useAdoption } from "../CustomHooks/useAdoption";
 const AnimalDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const validation = useValidation();
   const enableButton = useAdoption(id);
   const animal = useAnimalDetail(id);
@@ -26,7 +26,7 @@ const AnimalDetail = () => {
         })
       );
       dispatch(getAdoptions());
-    } else history.push("/signin");
+    } else navigate("/signin");
   };
   return (
     <div className={styles.detail}>

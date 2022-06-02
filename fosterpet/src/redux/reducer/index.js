@@ -18,12 +18,14 @@ import { filter } from "./filter";
 const initialState = {
   animals: [],
   animalsCopy: [],
-  user: JSON.parse(window.localStorage.getItem("logUser"))
-    ? JSON.parse(window.localStorage.getItem("logUser")).user
-    : {},
-  token: JSON.parse(window.localStorage.getItem("logUser"))
-    ? JSON.parse(window.localStorage.getItem("logUser")).token
-    : null,
+  user: {},
+  // JSON.parse(window.localStorage.getItem("logUser"))
+  //   ? JSON.parse(window.localStorage.getItem("logUser")).user
+  //   : {},
+  token: null,
+  // JSON.parse(window.localStorage.getItem("logUser"))
+  //   ? JSON.parse(window.localStorage.getItem("logUser")).token
+  //   : null,
   message: null,
   favorites: [],
   favoritesCopy: [],
@@ -44,8 +46,10 @@ function rootReducer(state = initialState, { type, payload }) {
       window.localStorage.setItem("logUser", JSON.stringify(payload));
       return {
         ...state,
-        user: JSON.parse(window.localStorage.getItem("logUser")).user,
-        token: JSON.parse(window.localStorage.getItem("logUser")).token,
+        user: payload.user,
+        // JSON.parse(window.localStorage.getItem("logUser")).user,
+        token: payload.token,
+        // JSON.parse(window.localStorage.getItem("logUser")).token,
         message: null,
       };
     case ADD_FAVORITE:

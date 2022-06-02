@@ -5,7 +5,7 @@ import {
   DropdownToggle,
 } from "reactstrap";
 import { useState } from "react";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import { BiUserCircle } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Dropdown.module.css";
@@ -13,7 +13,7 @@ import { signOut } from "../../redux/action/index";
 
 const DropdownUser = () => {
   const [dropdown, setDropdown] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
 
@@ -24,7 +24,7 @@ const DropdownUser = () => {
   const signOutUser = () => {
     window.localStorage.removeItem("logUser");
     dispatch(signOut());
-    history.push("/");
+    navigate("/");
   };
   return (
     <div>
@@ -51,7 +51,7 @@ const DropdownUser = () => {
             </DropdownItem>
             <DropdownItem
               className={styles.item}
-              onClick={() => history.push("/edituser")}
+              onClick={() => navigate("/edituser")}
             >
               Edit
             </DropdownItem>
@@ -61,7 +61,7 @@ const DropdownUser = () => {
           <DropdownMenu className={styles.menu}>
             <DropdownItem
               className={styles.item}
-              onClick={() => history.push("/signin")}
+              onClick={() => navigate("/signin")}
             >
               Sign In
             </DropdownItem>

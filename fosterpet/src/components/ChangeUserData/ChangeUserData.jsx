@@ -5,17 +5,17 @@ import Form from "../Form/Form";
 import { useEdit } from "../CustomHooks/useEdit";
 import { deleteAcount, signOut } from "../../redux/action/index";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 
 const ChangeUserData = ({ onPress }) => {
   let statusChange = useEdit();
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const handleDelete = () => {
     dispatch(deleteAcount());
     dispatch(signOut());
     window.localStorage.removeItem("logUser");
-    history.push("/");
+    navigate("/");
   };
   return (
     <div className={styles.container}>

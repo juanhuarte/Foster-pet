@@ -8,7 +8,7 @@ const AdoptionHistory = () => {
     <div className={styles.adoptions}>
       <h2 className={styles.title}>Adoption History</h2>
       <div className={styles.list}>
-        {adoptions.length !== 0 ? (
+        {adoptions?.length !== 0 ? (
           adoptions?.map((adoption) => (
             <EachAdoption
               key={adoption.id}

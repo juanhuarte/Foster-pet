@@ -4,9 +4,7 @@ import * as actionType from "./actionTypes";
 export const getAnimals = () => {
   return async (dispatch) => {
     try {
-      console.log("entre");
       const { data } = await axios.get("/animal");
-      console.log("entre", data);
       dispatch({
         type: actionType.GET_ANIMALS,
         payload: data,
@@ -222,5 +220,23 @@ export const filterFav = (data) => {
   return {
     type: actionType.FILTER_FAVORITES,
     payload: data,
+  };
+};
+
+export const verifyToken = (token) => {
+  return async (dispatch) => {
+    const { data } = await axios.get("/user/verify", {
+      headers: {
+        Authorization: token,
+      },
+    });
+    if (!data.success) return data.error;
+    dispatch({
+      type: actionType.SIGN_IN,
+      payload: {
+        token: token.substring(7),
+        user: data.data,
+      },
+    });
   };
 };

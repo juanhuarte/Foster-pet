@@ -3,20 +3,20 @@ import styles from "./Animal.module.css";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useValidation } from "../CustomHooks/useValidation";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import { addFavorite, deleteFav } from "../../redux/action/index";
 import { useFavorites } from "../CustomHooks/useFavorites";
 
 export default function Animal({ gender, size, image, temporaryName, id }) {
   const validation = useValidation();
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isFav = useFavorites(id);
   const handleClick = (e) => {
     if (validation) {
       if (!isFav) dispatch(addFavorite(id));
       else dispatch(deleteFav(id));
-    } else history.push("/signin");
+    } else navigate("/signin");
   };
   return (
     <div className={styles.container}>
