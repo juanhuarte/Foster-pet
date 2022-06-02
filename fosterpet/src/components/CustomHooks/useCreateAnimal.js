@@ -1,18 +1,14 @@
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { getAnimals } from "../../redux/action/index";
 
 export const useCreateAnimal = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const success = useSelector((state) => state.success);
 
-  if (
-    success
-    // typeof success !== "boolean" &&
-    // (success.includes("cat") || success.includes("dog"))
-  ) {
+  if (success) {
     dispatch(getAnimals());
-    history.push("/");
+    navigate("/");
   }
 };

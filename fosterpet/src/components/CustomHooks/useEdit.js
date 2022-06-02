@@ -1,9 +1,9 @@
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 
 export const useEdit = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const success = useSelector((state) => state.success);
 
-  if (success) history.push("/");
+  if (success) navigate("/");
 };

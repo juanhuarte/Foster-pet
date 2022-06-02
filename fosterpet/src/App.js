@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useEffect } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getAnimals } from "./redux/action/index";
 import Home from "./components/Home/Home";
@@ -29,10 +29,30 @@ function App() {
     dispatch(getAnimals());
   }, []);
   axios.defaults.baseURL = REACT_APP_API;
+  const routes = validation ? (
+    <Routes>
+      <Route exact path="/" element={<Home />} />
+      <Route exact path="/favorites" element={<Favorites />} />
+      <Route exact path="/edituser" element={<EditUser />} />
+      <Route exact path="/adoptions" element={<Adoptions />} />
+      <Route exact path="/rescue" element={<RescueAnimal />} />
+      <Route exact path="/animal/:id" element={<AnimalDetail />} />
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
+  ) : (
+    <Routes>
+      <Route exact path="/" element={<Home />} />
+      <Route exact path="/signin" element={<User />} />
+      <Route exact path="/animal/:id" element={<AnimalDetail />} />
+      <Route path="*" element={<Navigate to="/signin" />} />
+    </Routes>
+  );
+
   return (
     <div className="App">
       <NavBar />
-      <Route exact path="/">
+      <div>{routes}</div>
+      {/* <Route exact path="/">
         <Home />
       </Route>
       <Route exact path="/signin">
@@ -62,7 +82,7 @@ function App() {
         render={() =>
           validation ? <RescueAnimal /> : <Redirect to="/signin" />
         }
-      />
+      /> */}
     </div>
   );
 }
