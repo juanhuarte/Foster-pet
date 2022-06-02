@@ -9,7 +9,8 @@ const getFavoritesAnimals = (req, res) => {
       model: "Animal",
     })
     .then((result) => {
-      if (result) res.json(result.favoritesAnimals);
+      if (result)
+        res.json({ success: true, favorites: result.favoritesAnimals });
     })
     .catch((error) => {
       console.log(error);

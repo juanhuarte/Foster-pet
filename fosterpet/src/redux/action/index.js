@@ -5,10 +5,11 @@ export const getAnimals = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get("/animal");
-      dispatch({
-        type: actionType.GET_ANIMALS,
-        payload: data,
-      });
+      if (data.success)
+        dispatch({
+          type: actionType.GET_ANIMALS,
+          payload: data.animals,
+        });
     } catch (error) {
       console.log(error);
       throw new Error(error);
@@ -110,10 +111,11 @@ export const getFavorites = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get("favorite");
-      dispatch({
-        type: actionType.GET_FAVORITES,
-        payload: data,
-      });
+      if (data.success)
+        dispatch({
+          type: actionType.GET_FAVORITES,
+          payload: data.favorites,
+        });
     } catch (error) {
       console.log(error);
       throw new Error(error);
@@ -161,10 +163,11 @@ export const getAdoptions = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get("adopt");
-      dispatch({
-        type: actionType.GET_ADOPTIONS,
-        payload: data.adoptionHistory,
-      });
+      if (data.success)
+        dispatch({
+          type: actionType.GET_ADOPTIONS,
+          payload: data.adoptionHistory,
+        });
     } catch (error) {
       console.log(error);
       throw new Error(error);

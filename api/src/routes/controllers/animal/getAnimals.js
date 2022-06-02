@@ -3,7 +3,7 @@ const Animal = require("../../../models/animal");
 const getAnimals = (req, res) => {
   Animal.find({ adoptedStatus: false })
     .then((result) => {
-      res.json(result);
+      res.json({ success: true, animals: result });
     })
     .catch((error) => {
       console.log(error);
