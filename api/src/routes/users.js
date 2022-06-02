@@ -14,5 +14,14 @@ router.get("/user", login);
 router.put("/user", authorizationToken, updateUser);
 router.put("/user/password", authorizationToken, updatePassword);
 router.delete("/user", authorizationToken, deleteUser);
+router.get("/user/verify", authorizationToken, (req, res) => {
+  res.json({
+    success: true,
+    data: {
+      id: req.user.id,
+      mail: req.user.mail,
+    },
+  });
+});
 
 module.exports = router;

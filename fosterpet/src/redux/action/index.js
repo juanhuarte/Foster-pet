@@ -4,7 +4,9 @@ import * as actionType from "./actionTypes";
 export const getAnimals = () => {
   return async (dispatch) => {
     try {
+      console.log("entre");
       const { data } = await axios.get("/animal");
+      console.log("entre", data);
       dispatch({
         type: actionType.GET_ANIMALS,
         payload: data,

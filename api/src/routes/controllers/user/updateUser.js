@@ -13,7 +13,7 @@ const updateUser = (req, res) => {
     })
     .catch((error) => {
       console.log(error);
-      res.json({ error: "Couldn't update the User" });
+      res.json({ success: false, error: "Couldn't update the User" });
     });
 };
 module.exports = { updateUser };

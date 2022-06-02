@@ -12,19 +12,17 @@ const authorizationToken = (req, res, next) => {
   let decodedToken = {};
   try {
     decodedToken = jwt.verify(token, JWT_SECRET);
+
+    if (!token || !decodedToken.id) throw new Error("token missing or invalid");
+    req.user = {
+      userId: decodedToken.id,
+      mail: decodedToken.mail,
+    };
+    next();
   } catch (error) {
     console.log(error);
-    throw new Error(error);
+    res.json({ success: false, error: error.message });
   }
-  if (!token || !decodedToken.id) {
-    return res.status(401).json({ error: "token missing or invalid" });
-  }
-  req.user = {
-    userId: decodedToken.id,
-    mail: decodedToken.mail,
-  };
-  next();
-  //return decodedToken;
 };
 
 module.exports = { authorizationToken };

@@ -12,16 +12,9 @@ const deleteUser = async (req, res) => {
         message: `The User ${mail} was deleted successfully`,
       });
     } else throw new Error("This User doesn't exist");
-    // {
-    //   res.json({
-    //     success: false,
-    //     message: "This User doesn't exist",
-    //   });
-    // }
   } catch (error) {
     console.log(error);
-    res.json({ error: error.message });
-    // throw new Error("Error trying to delete this User");
+    res.json({ success: false, error: error.message });
   }
 };
 

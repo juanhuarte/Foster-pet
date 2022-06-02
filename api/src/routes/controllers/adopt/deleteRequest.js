@@ -17,15 +17,10 @@ const deleteRequest = async (req, res) => {
         success: true,
         message: `The adoption request ${id} was successfully deleted`,
       });
-    } else {
-      res.json({
-        success: false,
-        message: "You can't delete this adoption request",
-      });
-    }
+    } else throw new Error("You can't delete this adoption request");
   } catch (error) {
     console.log(error);
-    res.json({ error: error.message });
+    res.json({ success: false, error: error.message });
   }
 };
 module.exports = { deleteRequest };

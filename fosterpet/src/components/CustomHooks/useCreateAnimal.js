@@ -8,8 +8,9 @@ export const useCreateAnimal = () => {
   const success = useSelector((state) => state.success);
 
   if (
-    typeof success !== "boolean" &&
-    (success.includes("cat") || success.includes("dog"))
+    success
+    // typeof success !== "boolean" &&
+    // (success.includes("cat") || success.includes("dog"))
   ) {
     dispatch(getAnimals());
     history.push("/");

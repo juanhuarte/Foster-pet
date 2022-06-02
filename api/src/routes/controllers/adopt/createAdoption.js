@@ -26,12 +26,12 @@ const createAdoption = async (req, res) => {
       animal,
     });
     res.json({
-      success: `the ${animal} has been created successfully`,
+      success: true,
       data: newAdoption,
     });
   } catch (error) {
     console.log(error);
-    res.json({ error: error.message });
+    res.json({ success: false, error: error.message });
   }
 };
 

@@ -19,10 +19,10 @@ const createUser = async (req, res) => {
         : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Breezeicons-actions-22-im-user.svg/1200px-Breezeicons-actions-22-im-user.svg.png",
       location,
     });
-    res.json({ success: "The User was created successfully", data: newUser });
+    res.json({ success: true, data: newUser });
   } catch (error) {
     console.log(error);
-    res.json({ error: error.message });
+    res.json({ success: false, error: error.message });
   }
 };
 

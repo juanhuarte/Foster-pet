@@ -12,17 +12,17 @@ const updatePassword = async (req, res) => {
       { _id: userId },
       { password: encryptedPassword }
     ).catch((err) =>
-      res.send({
+      res.json({
         success: false,
         message: "Error trying to change the password",
       })
     );
-    res.send({
+    res.json({
       success: true,
       message: "Password has benn changed successfully",
     });
   } else {
-    res.send({ success: false, error: "wrong password" });
+    res.json({ success: false, error: "wrong password" });
   }
 };
 

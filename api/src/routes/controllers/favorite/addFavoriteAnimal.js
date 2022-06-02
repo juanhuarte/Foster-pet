@@ -24,7 +24,7 @@ const addFavoriteAnimal = async (req, res) => {
     } else throw new Error("This animal is already your favorite");
   } catch (error) {
     console.log(error);
-    res.json({ error: error.message });
+    res.json({ success: false, error: error.message });
   }
 };
 

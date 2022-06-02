@@ -19,7 +19,7 @@ const login = (req, res) => {
             },
             JWT_SECRET
           );
-          res.json({ user: result, token: jwtToken });
+          res.json({ success: true, user: result, token: jwtToken });
         } else {
           res.json({ success: false, message: "Incorrect data" });
         }

@@ -48,7 +48,7 @@ const answeringRequest = async (req, res) => {
     */
   } catch (error) {
     console.log(error);
-    res.json({ error: error.message });
+    res.json({ success: false, error: error.message });
   }
 };
 

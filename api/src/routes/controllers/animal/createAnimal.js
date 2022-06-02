@@ -28,12 +28,12 @@ const createAnimal = async (req, res) => {
       user: userId,
     });
     res.json({
-      success: `the ${type} has been created successfully`,
+      success: true,
       data: newAnimal,
     });
   } catch (error) {
     console.log(error);
-    res.json({ error: error.message });
+    res.json({ success: false, error: error.message });
   }
 };
 
