@@ -202,13 +202,6 @@ export const createAnimal = (inputData) => {
   };
 };
 
-// export const filter = (data) => {
-//   return {
-//     type: actionType.FILTER,
-//     payload: data,
-//   };
-// };
-
 export const filter = (data) => {
   return {
     type: actionType.FILTER,

@@ -52,37 +52,6 @@ function App() {
     <div className="App">
       <NavBar />
       <div>{routes}</div>
-      {/* <Route exact path="/">
-        <Home />
-      </Route>
-      <Route exact path="/signin">
-        <User />
-      </Route>
-      <Route exact path="/animal/:id">
-        <AnimalDetail />
-      </Route>
-      <Route
-        exact
-        path="/favorites"
-        render={() => (validation ? <Favorites /> : <Redirect to="/signin" />)}
-      />
-      <Route
-        exact
-        path="/edituser"
-        render={() => (validation ? <EditUser /> : <Redirect to="/signin" />)}
-      />
-      <Route
-        exact
-        path="/adoptions"
-        render={() => (validation ? <Adoptions /> : <Redirect to="/signin" />)}
-      />
-      <Route
-        exact
-        path="/rescue"
-        render={() =>
-          validation ? <RescueAnimal /> : <Redirect to="/signin" />
-        }
-      /> */}
     </div>
   );
 }

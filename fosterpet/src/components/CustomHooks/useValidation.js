@@ -18,7 +18,7 @@ export const useValidation = () => {
         if (res) {
           window.localStorage.removeItem("logUser");
           axios.defaults.headers.common["Authorization"] = "";
-          alert(res);
+          console.log(res);
           return false;
         }
       });
