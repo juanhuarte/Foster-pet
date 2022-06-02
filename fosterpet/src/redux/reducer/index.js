@@ -45,7 +45,7 @@ function rootReducer(state = initialState, { type, payload }) {
         message: null,
       };
     case ADD_FAVORITE:
-      return { ...state, favorites: payload };
+      return { ...state, favorites: payload, favoritesCopy: payload };
     case GET_FAVORITES:
       return {
         ...state,
@@ -53,7 +53,7 @@ function rootReducer(state = initialState, { type, payload }) {
         favoritesCopy: payload,
       };
     case DELETE_FAV:
-      return { ...state, favorites: payload };
+      return { ...state, favorites: payload, favoritesCopy: payload };
     case SIGN_OUT:
       return {
         ...state,
