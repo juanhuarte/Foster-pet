@@ -36,7 +36,9 @@ const createAnimal = async (req, res) => {
       "images",
       newFileName
     );
-    newAnimal.image = `http://localhost:3001/${newFileName}`;
+
+    // newAnimal.image = `http://localhost:3001/${newFileName}`;
+    newAnimal.image = newFileName;
 
     image.mv(fileRoute, async (err) => {
       if (err) throw new Error(err);
