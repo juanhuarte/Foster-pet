@@ -194,6 +194,7 @@ export const createAnimal = (inputData) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post("/animal", inputData);
+      if (!data.success) console.log("errorrrrrrr", data.error);
       dispatch({
         type: actionType.CREATE_ANIMAL,
         payload: data,

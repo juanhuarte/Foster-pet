@@ -38,7 +38,8 @@ const createAnimal = async (req, res) => {
     );
 
     // newAnimal.image = `http://localhost:3001/${newFileName}`;
-    newAnimal.image = newFileName;
+    // newAnimal.image = newFileName;
+    newAnimal.image = `https://foster-pet.herokuapp.com/${newFileName}`;
 
     image.mv(fileRoute, async (err) => {
       if (err) throw new Error(err);
