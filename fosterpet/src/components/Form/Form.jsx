@@ -21,7 +21,8 @@ const Form = ({ title, inputArray, actionCreator, onPress }) => {
         (element) => (newData = { ...newData, [element.name]: element.value })
       );
     }
-    dispatch(actionCreator(newData));
+    const respuesta = dispatch(actionCreator(newData));
+    if (respuesta) throw new Error(respuesta);
     if (title === "Sign Up") {
       alert("Usuario Creado");
       onPress(e, true);

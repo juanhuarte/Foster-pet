@@ -5,11 +5,12 @@ export const getAnimals = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get("/animal");
-      if (data.success)
-        dispatch({
-          type: actionType.GET_ANIMALS,
-          payload: data.animals,
-        });
+      if (!data.success) return data.error;
+      // if (data.success)
+      dispatch({
+        type: actionType.GET_ANIMALS,
+        payload: data.animals,
+      });
     } catch (error) {
       console.log(error);
       throw new Error(error);
@@ -21,6 +22,7 @@ export const createUser = (inputData) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post("/user", inputData);
+      if (!data.success) return data.error;
       dispatch({
         type: actionType.CREATE_USER,
       });
@@ -37,6 +39,7 @@ export const signIn = (inputDate) => {
       const { data } = await axios.get(
         `/user?mail=${inputDate.mail}&password=${inputDate.password}`
       );
+      if (!data.success) return data.error;
       dispatch({
         type: actionType.SIGN_IN,
         payload: data,
@@ -52,6 +55,7 @@ export const editUserInfo = (newInfo) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.put("user", newInfo);
+      if (!data.success) return data.error;
       dispatch({
         type: actionType.EDIT_USER_INFO,
         payload: data,
@@ -67,6 +71,7 @@ export const changeUserPassword = (newInfo) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.put("user/password", newInfo);
+      if (!data.success) return data.error;
       dispatch({
         type: actionType.CHANGE_USER_PASSWORD,
         payload: data,
@@ -81,7 +86,8 @@ export const changeUserPassword = (newInfo) => {
 export const deleteAcount = () => {
   return async (dispatch) => {
     try {
-      await axios.delete("/user");
+      const { data } = await axios.delete("/user");
+      if (!data.success) return data.error;
       dispatch({
         type: actionType.DELETE_ACOUNT,
       });
@@ -96,6 +102,7 @@ export const addFavorite = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.put(`/favorite/${id}`);
+      if (!data.success) return data.error;
       dispatch({
         type: actionType.ADD_FAVORITE,
         payload: data.favoritesAnimals,
@@ -111,11 +118,12 @@ export const getFavorites = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get("favorite");
-      if (data.success)
-        dispatch({
-          type: actionType.GET_FAVORITES,
-          payload: data.favorites,
-        });
+      if (!data.success) return data.error;
+      // if (data.success)
+      dispatch({
+        type: actionType.GET_FAVORITES,
+        payload: data.favorites,
+      });
     } catch (error) {
       console.log(error);
       throw new Error(error);
@@ -127,6 +135,7 @@ export const deleteFav = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.delete(`/favorite/${id}`);
+      if (!data.success) return data.error;
       dispatch({
         type: actionType.DELETE_FAV,
         payload: data.favoritesAnimals,
@@ -148,6 +157,7 @@ export const createAdoption = (inputData) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post("/adopt", inputData);
+      if (!data.success) return data.error;
       dispatch({
         type: actionType.CREATE_ADOPTION,
         payload: data,
@@ -163,11 +173,12 @@ export const getAdoptions = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get("adopt");
-      if (data.success)
-        dispatch({
-          type: actionType.GET_ADOPTIONS,
-          payload: data.adoptionHistory,
-        });
+      if (!data.success) return data.error;
+      // if (data.success)
+      dispatch({
+        type: actionType.GET_ADOPTIONS,
+        payload: data.adoptionHistory,
+      });
     } catch (error) {
       console.log(error);
       throw new Error(error);
@@ -179,6 +190,7 @@ export const updateAdoption = ({ id, status }) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.put(`/adopt/request/${id}`, { status });
+      if (!data.success) return data.error;
       dispatch({
         type: actionType.CANCEL_ADOPTION,
         payload: data,
@@ -194,7 +206,7 @@ export const createAnimal = (inputData) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post("/animal", inputData);
-      if (!data.success) console.log("errorrrrrrr", data.error);
+      if (!data.success) return data.error;
       dispatch({
         type: actionType.CREATE_ANIMAL,
         payload: data,

@@ -15,7 +15,7 @@ const deleteFavoriteAnimal = async (req, res) => {
     let savedUser = await user.save();
     res.json({ success: true, favoritesAnimals: savedUser.favoritesAnimals });
   } catch (error) {
-    throw new Error(error);
+    throw new Error({ success: false, error });
   }
 };
 

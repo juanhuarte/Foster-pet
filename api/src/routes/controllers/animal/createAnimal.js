@@ -7,12 +7,13 @@ const createAnimal = async (req, res) => {
   const { image } = req.files;
   try {
     let foundAnimal = await Animal.findOne({ description, user: userId });
-    if (foundAnimal) {
-      const alreadyExist = foundAnimal.find(
-        (element) => element.user.toString() === userId
-      );
-      if (alreadyExist) throw new Error("This animal was already published");
-    }
+    if (foundAnimal) throw new Error("This animal was already published");
+    //  {
+    //   const alreadyExist = foundAnimal.find(
+    //     (element) => element.user.toString() === userId
+    //   );
+    //   if (alreadyExist) throw new Error("This animal was already published");
+    // }
     let newAnimal = new Animal({
       type: type.toLowerCase(),
       gender: gender.toLowerCase(),
