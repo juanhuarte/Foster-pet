@@ -18,7 +18,7 @@ router.get("/user/verify", authorizationToken, (req, res) => {
   res.json({
     success: true,
     data: {
-      id: req.user.id,
+      id: req.user.userId,
       mail: req.user.mail,
     },
   });
