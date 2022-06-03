@@ -2,7 +2,12 @@ import { useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router";
 import { useAnimalDetail } from "../CustomHooks/useAnimalDetail";
 import styles from "./AnimalDetail.module.css";
-import { createAdoption, getAdoptions } from "../../redux/action/index";
+import {
+  createAdoption,
+  getAdoptions,
+  deleteAnimal,
+  getAnimals,
+} from "../../redux/action/index";
 import { useValidation } from "../CustomHooks/useValidation";
 import { useAdoption } from "../CustomHooks/useAdoption";
 
@@ -12,20 +17,26 @@ const AnimalDetail = () => {
   const navigate = useNavigate();
   const validation = useValidation();
   const enableButton = useAdoption(id);
-  const animal = useAnimalDetail(id);
+  const { animal, isTheRescuer } = useAnimalDetail(id);
 
   const handleClick = (e) => {
     e.preventDefault();
     if (validation) {
-      dispatch(
-        createAdoption({
-          date: new Date().toLocaleDateString(),
-          adoptionCode: Math.random(),
-          rescuer: animal.user,
-          animal: id,
-        })
-      );
-      dispatch(getAdoptions());
+      if (e.target.name === "delete") {
+        dispatch(deleteAnimal(id));
+        dispatch(getAnimals());
+        navigate("/");
+      } else {
+        dispatch(
+          createAdoption({
+            date: new Date().toLocaleDateString(),
+            adoptionCode: Math.random(),
+            rescuer: animal.user,
+            animal: id,
+          })
+        );
+        dispatch(getAdoptions());
+      }
     } else navigate("/signin");
   };
   return (
@@ -59,6 +70,16 @@ const AnimalDetail = () => {
           <img className={styles.img} src={animal?.image} alt="AnimalImg" />
         </div>
         <div className={styles.adopt}>
+          {isTheRescuer && (
+            <button
+              className={styles.button}
+              onClick={handleClick}
+              name="delete"
+              // disabled={enableButton}
+            >
+              Delete
+            </button>
+          )}
           <button
             className={styles.btn}
             onClick={handleClick}

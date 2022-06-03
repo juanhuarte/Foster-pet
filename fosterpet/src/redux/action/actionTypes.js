@@ -14,3 +14,4 @@ export const CREATE_ANIMAL = "CREATE_ANIMAL";
 export const DELETE_ACOUNT = "DELETE_ACOUNT";
 export const FILTER = "FILTER";
 export const FILTER_FAVORITES = "FILTER_FAVORITES";
+export const DELETE_ANIMAL = "DELETE_ANIMAL";

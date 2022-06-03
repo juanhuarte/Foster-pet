@@ -218,6 +218,22 @@ export const createAnimal = (inputData) => {
   };
 };
 
+export const deleteAnimal = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete(`/animal/${id}`);
+      if (!data.success) return data.error;
+      dispatch({
+        type: actionType.DELETE_ANIMAL,
+        // payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+      throw new Error(error);
+    }
+  };
+};
+
 export const filter = (data) => {
   return {
     type: actionType.FILTER,

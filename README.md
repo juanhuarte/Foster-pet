@@ -12,14 +12,12 @@ Fostering gives dogs and cats the time, love and care they need to find forever 
 
 ## Future Features
 
-- Upload pictures with Cloudinary
-
 - Geolocation
 
 - Accept or decline adoption request
 
 - Nodemailer
 
-* Delete and Edit an Animal
+* Edit an Animal
 
 * Responsive
