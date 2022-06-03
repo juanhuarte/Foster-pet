@@ -27,6 +27,7 @@ export function validation(name, value) {
       name === "type" ||
       name === "age" ||
       name === "size" ||
+      name === "gender" ||
       name === "description" ||
       name === "image" ||
       name === "location") &&

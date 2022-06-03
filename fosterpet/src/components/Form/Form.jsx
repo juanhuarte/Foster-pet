@@ -11,10 +11,16 @@ const Form = ({ title, inputArray, actionCreator, onPress }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let newData = {};
-    input.forEach(
-      (element) => (newData = { ...newData, [element.name]: element.value })
-    );
+    let newData;
+    if (title === "Rescued Animal") {
+      newData = new FormData();
+      input.forEach((element) => newData.append(element.name, element.value));
+    } else {
+      newData = {};
+      input.forEach(
+        (element) => (newData = { ...newData, [element.name]: element.value })
+      );
+    }
     dispatch(actionCreator(newData));
     if (title === "Sign Up") {
       alert("Usuario Creado");

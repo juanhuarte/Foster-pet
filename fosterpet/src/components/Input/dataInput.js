@@ -18,8 +18,8 @@ export const createRescueAnimal = [
   { name: "age", type: "text", placeholder: "Age" },
   { name: "size", type: "text", placeholder: "Size" },
   { name: "description", type: "text", placeholder: "Description" },
-  { name: "image", type: "text", placeholder: "Image" },
   { name: "location", type: "text", placeholder: "Location" },
+  { name: "image", type: "file", placeholder: "Image" },
 ];
 
 export const edituser = [

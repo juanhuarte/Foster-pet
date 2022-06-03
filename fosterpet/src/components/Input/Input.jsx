@@ -16,7 +16,7 @@ const Input = ({ type, name, placeholder, id, setInput, input }) => {
       setEachInput((oldinput) => {
         const newInput = {
           ...oldinput,
-          value,
+          value: name === "image" ? e.target.files[0] : value,
           error: true,
           errorMessage: validate,
         };
@@ -29,7 +29,7 @@ const Input = ({ type, name, placeholder, id, setInput, input }) => {
       setEachInput((oldinput) => {
         const newInput = {
           ...oldinput,
-          value,
+          value: name === "image" ? e.target.files[0] : value,
           error: false,
           errorMessage: "",
         };
@@ -51,6 +51,8 @@ const Input = ({ type, name, placeholder, id, setInput, input }) => {
           value={eachInput.value}
           onChange={handleChange}
         />
+      ) : name === "image" ? (
+        <input type={type} name={name} onChange={handleChange} />
       ) : (
         <input
           type={type}
