@@ -51,3 +51,8 @@
   background-color: transparent;
   border-color: transparent;
 }
+.containerButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

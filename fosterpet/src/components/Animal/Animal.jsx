@@ -32,27 +32,29 @@ export default function Animal({ gender, size, image, temporaryName, id }) {
         <p className={styles.text}>{gender}</p>
         <p className={styles.text1}>{size}</p>
       </div>
-      <button onClick={handleClick} className={styles.icon}>
-        {!isFav ? (
-          <AiOutlineHeart
-            size="25"
-            style={{
-              color: "#f8edeb",
-              backgroundColor: "none",
-              marginTop: "1vh",
-            }}
-          />
-        ) : (
-          <AiFillHeart
-            size="25"
-            style={{
-              color: "#d62828",
-              backgroundColor: "none",
-              marginTop: "1vh",
-            }}
-          />
-        )}
-      </button>
+      <div className={styles.containerButton}>
+        <button onClick={handleClick} className={styles.icon}>
+          {!isFav ? (
+            <AiOutlineHeart
+              size="25"
+              style={{
+                color: "#f8edeb",
+                backgroundColor: "none",
+                marginTop: "1vh",
+              }}
+            />
+          ) : (
+            <AiFillHeart
+              size="25"
+              style={{
+                color: "#d62828",
+                backgroundColor: "none",
+                marginTop: "1vh",
+              }}
+            />
+          )}
+        </button>
+      </div>
     </div>
   );
 }
