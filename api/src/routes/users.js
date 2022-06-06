@@ -7,9 +7,10 @@ const { updatePassword } = require("./controllers/user/updatePassword");
 const {
   authorizationToken,
 } = require("./controllers/authorization/authorization");
+const validateSignUp = require("../utils/middlewares/validateSignUp");
 const router = Router();
 
-router.post("/user", createUser);
+router.post("/user", validateSignUp, createUser);
 router.get("/user", login);
 router.put("/user", authorizationToken, updateUser);
 router.put("/user/password", authorizationToken, updatePassword);
