@@ -8,8 +8,8 @@ const validateSignUp = (req, res, next) => {
       "string.empty": "This field must be completed",
     }),
     lastname: joi.string().trim().min(2).required().max(20).messages({
-      "string.min": "This name is too short",
-      "string.max": "This name is too long",
+      "string.min": "This lastname is too short",
+      "string.max": "This lastname is too long",
       "string.empty": "This field must be completed",
     }),
     mail: joi.string().trim().email().required().messages({

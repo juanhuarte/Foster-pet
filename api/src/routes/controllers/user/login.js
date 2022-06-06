@@ -9,7 +9,7 @@ const login = (req, res) => {
 
   User.findOne({ mail })
     .then((result) => {
-      if (!result) res.json({ success: false, message: "Incorrect data" });
+      if (!result) res.json({ success: false, error: "Incorrect data" });
       else {
         if (bcrypt.compareSync(password, result.password)) {
           const jwtToken = jwt.sign(
@@ -21,7 +21,7 @@ const login = (req, res) => {
           );
           res.json({ success: true, user: result, token: jwtToken });
         } else {
-          res.json({ success: false, message: "Incorrect data" });
+          res.json({ success: false, error: "Incorrect data" });
         }
       }
     })
