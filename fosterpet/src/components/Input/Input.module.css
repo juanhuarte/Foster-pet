@@ -9,7 +9,8 @@
 .text {
   color: red;
   font-size: 1.5vh;
-  height: 1.5vh;
+  /* height: 1.5vh; */
+  min-height: 2vh;
 }
 
 .textarea {

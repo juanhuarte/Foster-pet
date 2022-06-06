@@ -8,7 +8,10 @@
 .account {
   display: flex;
   flex-direction: row;
-  margin-top: 4vh;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 4vh; */
+  margin-right: -4vw;
 }
 
 .button,
@@ -18,8 +21,10 @@
   color: blue;
   text-decoration: underline;
   cursor: pointer;
-  margin-left: 1vw;
-  margin-top: 1vh;
+  /* margin-left: 1vw; */
+  margin-left: -2vw;
+  margin-top: 0.8vh;
+  font-size: 1vw;
 }
 
 .text {
@@ -31,7 +36,8 @@
   justify-content: flex-start;
 }
 .buttonU {
-  margin-left: -1vw;
+  /* margin-left: -1vw; */
+  margin-right: 3vw;
 }
 
 .delete {
@@ -47,6 +53,7 @@
   align-items: center;
   background-color: transparent;
   margin-right: 1vw;
+  font-size: 1vw;
 }
 
 .delete:hover {

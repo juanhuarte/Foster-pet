@@ -7,7 +7,7 @@
 .img {
   width: 50vw;
   height: 87vh;
-  overflow-x: hidden;
+  overflow-y: hidden;
   justify-content: flex-start;
   display: flex;
 }

@@ -6,7 +6,6 @@ import { filterFav } from "../../redux/action/index";
 
 const Favorites = () => {
   const favorites = useSelector((state) => state.favoritesCopy);
-  console.log("favorites", favorites);
   return (
     <div className={styles.home}>
       {favorites.length === 0 && (
@@ -14,10 +13,12 @@ const Favorites = () => {
           You don't have any animal mark as favorite
         </p>
       )}
-      <div>
-        <Filter actionCreator={filterFav} />
-        <Animals animalsArray={favorites} />;
-      </div>
+      {favorites.length > 0 && (
+        <div>
+          <Filter actionCreator={filterFav} />
+          <Animals animalsArray={favorites} />;
+        </div>
+      )}
     </div>
   );
 };

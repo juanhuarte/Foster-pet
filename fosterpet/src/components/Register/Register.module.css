@@ -3,12 +3,16 @@
   flex-direction: column;
   align-items: center;
   margin-left: 15vw;
+  /* margin-bottom: 2vh; */
 }
 
 .account {
   display: flex;
   flex-direction: row;
-  margin-top: 4vh;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 4vh; */
+  margin-right: -4vw;
 }
 
 .button {
@@ -17,6 +21,7 @@
   color: blue;
   text-decoration: underline;
   cursor: pointer;
-  margin-left: 1vw;
-  margin-top: 1vh;
+  margin-left: -2vw;
+  margin-top: 0.8vh;
+  font-size: 1vw;
 }

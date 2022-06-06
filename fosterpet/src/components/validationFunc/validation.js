@@ -1,5 +1,6 @@
 export function validation(name, value) {
   let errorMessage;
+
   if (name === "name" && value.length === 0) errorMessage = "Name is required";
   if (name === "lastname" && value.length === 0)
     errorMessage = "Last Name is required";
@@ -22,6 +23,7 @@ export function validation(name, value) {
       "Between 8 and 16 characters (Uppercase, Lowercase, Numbers)";
   if (name === "location" && value.length === 0)
     errorMessage = "Location is required";
+
   if (
     (name === "temporaryName" ||
       name === "type" ||

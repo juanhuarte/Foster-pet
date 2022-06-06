@@ -14,7 +14,7 @@ const updatePassword = async (req, res) => {
     ).catch((err) =>
       res.json({
         success: false,
-        message: "Error trying to change the password",
+        error: "Error trying to change the password",
       })
     );
     res.json({

@@ -2,13 +2,21 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  margin-bottom: 1vh;
 }
 
 .menu {
 }
 
 .item {
-  margin-right: 0.5vw;
+  /* margin-right: 0.5vw; */
   color: var(--navBar-color);
   background-color: var(--primary-font-color);
+  font-size: 0.9vw;
+  width: 5vw;
+  height: 3vh;
+  margin-top: 1.5vh;
+  margin-bottom: -0.5vh;
+  /* margin-right: 2vw; */
+  margin-left: 3vw;
 }

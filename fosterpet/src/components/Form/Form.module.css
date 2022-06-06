@@ -9,4 +9,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1vw;
+  color: var(--navBar-color);
+  border-color: var(--navBar-color);
+}
+
+.btn:hover {
+  background-color: var(--navBar-color);
+  color: var(--primary-font-color);
+  border-color: var(--primary-font-color);
+}
+
+.text {
+  color: red;
+  font-size: 1.5vh;
+  /* height: 1.5vh; */
+  min-height: 2vh;
 }

@@ -8,6 +8,7 @@ const Input = ({ type, name, placeholder, id, setInput, input }) => {
     error: false,
     errorMessage: "",
   });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     let arr;
@@ -64,7 +65,7 @@ const Input = ({ type, name, placeholder, id, setInput, input }) => {
         />
       )}
       <p className={styles.text}>
-        {eachInput.errorMessage.length > 0 ? eachInput.errorMessage : ""}
+        {eachInput.errorMessage.length > 0 && eachInput.errorMessage}
       </p>
     </div>
   );

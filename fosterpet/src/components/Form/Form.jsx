@@ -7,9 +7,10 @@ import { useDispatch } from "react-redux";
 const Form = ({ title, inputArray, actionCreator, onPress }) => {
   const dispatch = useDispatch();
   const [input, setInput] = useState(inputArray);
+  const [errorAnswer, setErrorAnswer] = useState(null);
   const enableButton = useEnableButton(input);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let newData;
     if (title === "Rescued Animal") {
@@ -21,9 +22,9 @@ const Form = ({ title, inputArray, actionCreator, onPress }) => {
         (element) => (newData = { ...newData, [element.name]: element.value })
       );
     }
-    const respuesta = dispatch(actionCreator(newData));
-    if (respuesta) throw new Error(respuesta);
-    if (title === "Sign Up") {
+    const respuesta = await dispatch(actionCreator(newData));
+    if (respuesta) setErrorAnswer(respuesta);
+    if (!respuesta && title === "Sign Up") {
       alert("Usuario Creado");
       onPress(e, true);
     }
@@ -46,6 +47,7 @@ const Form = ({ title, inputArray, actionCreator, onPress }) => {
       <button className={styles.btn} disabled={enableButton}>
         {title}
       </button>
+      <p className={styles.text}>{errorAnswer && errorAnswer}</p>
     </form>
   );
 };
