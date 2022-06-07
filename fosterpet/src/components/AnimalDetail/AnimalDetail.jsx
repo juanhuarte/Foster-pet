@@ -19,13 +19,13 @@ const AnimalDetail = () => {
   const enableButton = useAdoption(id);
   const { animal, isTheRescuer } = useAnimalDetail(id);
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
     if (validation) {
       if (e.target.name === "delete") {
         dispatch(deleteAnimal(id));
-        dispatch(getAnimals());
-        navigate("/");
+        const answer = await dispatch(getAnimals());
+        if (!answer) navigate("/");
       } else {
         dispatch(
           createAdoption({
@@ -81,7 +81,7 @@ const AnimalDetail = () => {
             </button>
           )}
           <button
-            className={styles.btn}
+            className={enableButton ? styles.disableBtn : styles.btn}
             onClick={handleClick}
             disabled={enableButton}
           >

@@ -3,10 +3,13 @@ import { useEnableButton } from "../CustomHooks/useEnableButton";
 import styles from "./Form.module.css";
 import Input from "../Input/Input";
 import { useDispatch } from "react-redux";
+import { getAnimals } from "../../redux/action/index";
+import { useNavigate } from "react-router";
 
 const Form = ({ title, inputArray, actionCreator, onPress }) => {
   const dispatch = useDispatch();
-  const [input, setInput] = useState(inputArray);
+  const navigate = useNavigate();
+  const [input, setInput] = useState([...inputArray]);
   const [errorAnswer, setErrorAnswer] = useState(null);
   const enableButton = useEnableButton(input);
 
@@ -18,18 +21,24 @@ const Form = ({ title, inputArray, actionCreator, onPress }) => {
       input.forEach((element) => newData.append(element.name, element.value));
     } else {
       newData = {};
-      input.forEach(
-        (element) => (newData = { ...newData, [element.name]: element.value })
-      );
+      input.forEach((element) => {
+        if (element.value.length > 0)
+          return (newData = { ...newData, [element.name]: element.value });
+      });
     }
-    const respuesta = await dispatch(actionCreator(newData));
-    if (respuesta) setErrorAnswer(respuesta);
-    if (!respuesta && title === "Sign Up") {
+    const answer = await dispatch(actionCreator(newData));
+    if (answer) setErrorAnswer(answer);
+    if (!answer && title === "Sign Up") {
       alert("Usuario Creado");
       onPress(e, true);
     }
-    setInput(inputArray);
+    if (!answer && title === "Rescued Animal") {
+      dispatch(getAnimals());
+      navigate("/");
+    }
+    setInput([...inputArray]);
   };
+
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <h1>{title}</h1>
@@ -44,7 +53,10 @@ const Form = ({ title, inputArray, actionCreator, onPress }) => {
           input={input}
         />
       ))}
-      <button className={styles.btn} disabled={enableButton}>
+      <button
+        className={enableButton ? styles.disableBtn : styles.btn}
+        disabled={enableButton}
+      >
         {title}
       </button>
       <p className={styles.text}>{errorAnswer && errorAnswer}</p>

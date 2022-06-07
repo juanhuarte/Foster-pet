@@ -211,6 +211,7 @@ export const createAnimal = (inputData) => {
         type: actionType.CREATE_ANIMAL,
         payload: data,
       });
+      // return data.success;
     } catch (error) {
       console.log(error);
       throw new Error(error);

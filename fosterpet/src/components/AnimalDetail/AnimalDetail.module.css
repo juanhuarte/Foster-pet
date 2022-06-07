@@ -133,7 +133,8 @@ img {
 }
 
 .btn,
-button {
+button,
+.disableBtn {
   grid-column: 2/3;
   border-width: 2px;
   border-radius: 10px;
@@ -145,6 +146,10 @@ button {
   justify-content: center;
   align-items: center;
   /* cursor: not-allowed; */
+}
+
+.disableBtn {
+  cursor: not-allowed;
 }
 
 .button {

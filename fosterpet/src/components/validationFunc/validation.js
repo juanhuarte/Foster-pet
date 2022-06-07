@@ -1,4 +1,4 @@
-export function validation(name, value) {
+export function validation(name, value, setInput, id, input) {
   let errorMessage;
 
   if (name === "name" && value.length === 0) errorMessage = "Name is required";
@@ -36,5 +36,11 @@ export function validation(name, value) {
     value.length === 0
   )
     errorMessage = `${name} is required`;
-  return errorMessage;
+  if (errorMessage) {
+    let arr = input;
+    arr[id] = { ...input[id], error: true, errorMessage };
+    setInput([...arr]);
+  }
+
+  // return errorMessage;
 }

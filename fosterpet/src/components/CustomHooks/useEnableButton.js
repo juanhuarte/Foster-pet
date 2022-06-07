@@ -6,8 +6,7 @@ export const useEnableButton = (input) => {
   useEffect(() => {
     let count = 0;
     input?.forEach((element) => {
-      if (!element.hasOwnProperty("error")) ++count;
-      else if (element.error) ++count;
+      if (element.error || element.value.length === 0) ++count;
     });
     if (count === 0) setEnableButton(false);
 
