@@ -8,12 +8,6 @@ const createAnimal = async (req, res) => {
   try {
     let foundAnimal = await Animal.findOne({ description, user: userId });
     if (foundAnimal) throw new Error("This animal was already published");
-    //  {
-    //   const alreadyExist = foundAnimal.find(
-    //     (element) => element.user.toString() === userId
-    //   );
-    //   if (alreadyExist) throw new Error("This animal was already published");
-    // }
     let newAnimal = new Animal({
       type: type.toLowerCase(),
       gender: gender.toLowerCase(),
@@ -50,25 +44,6 @@ const createAnimal = async (req, res) => {
         data: newAnimal,
       });
     });
-    // let newAnimal = await Animal.create({
-    //   type: type.toLowerCase(),
-    //   gender: gender.toLowerCase(),
-    //   age,
-    //   size: size.toLowerCase(),
-    //   description,
-    //   temporaryName: req.body.temporaryName
-    //     ? req.body.temporaryName.toLowerCase()
-    //     : type,
-    //   image: req.body.image
-    //     ? req.body.image
-    //     : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtfVESoo_p1p3ygBd_Jq5oUC9PVHECWAXHuniu577aCaMEy3_k-41VV53fxBT4HPLw9Ks&usqp=CAU",
-    //   location,
-    //   user: userId,
-    // });
-    // res.json({
-    //   success: true,
-    //   data: newAnimal,
-    // });
   } catch (error) {
     console.log(error);
     res.json({ success: false, error: error.message });
@@ -76,3 +51,30 @@ const createAnimal = async (req, res) => {
 };
 
 module.exports = { createAnimal };
+
+//  {
+//   const alreadyExist = foundAnimal.find(
+//     (element) => element.user.toString() === userId
+//   );
+//   if (alreadyExist) throw new Error("This animal was already published");
+// }
+
+// let newAnimal = await Animal.create({
+//   type: type.toLowerCase(),
+//   gender: gender.toLowerCase(),
+//   age,
+//   size: size.toLowerCase(),
+//   description,
+//   temporaryName: req.body.temporaryName
+//     ? req.body.temporaryName.toLowerCase()
+//     : type,
+//   image: req.body.image
+//     ? req.body.image
+//     : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtfVESoo_p1p3ygBd_Jq5oUC9PVHECWAXHuniu577aCaMEy3_k-41VV53fxBT4HPLw9Ks&usqp=CAU",
+//   location,
+//   user: userId,
+// });
+// res.json({
+//   success: true,
+//   data: newAnimal,
+// });
