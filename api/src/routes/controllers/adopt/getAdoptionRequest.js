@@ -8,7 +8,7 @@ const getAdoptionRequest = (req, res) => {
     rescuer: userId,
   })
     .then((result) => {
-      res.json(result);
+      res.json({ success: true, data: result });
     })
     .catch((error) => {
       console.log(error);
