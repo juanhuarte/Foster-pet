@@ -32,6 +32,12 @@
   align-items: center;
 }
 
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+}
+
 .btn:hover {
   background-color: var(--primary-btn-color);
   color: var(--primary-font-color);

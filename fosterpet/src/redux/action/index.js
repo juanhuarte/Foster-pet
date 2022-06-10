@@ -18,6 +18,23 @@ export const getAnimals = () => {
   };
 };
 
+export const getAllAnimals = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get("/animals");
+      if (!data.success) return data.error;
+      // if (data.success)
+      dispatch({
+        type: actionType.GET_ALL_ANIMALS,
+        payload: data.animals,
+      });
+    } catch (error) {
+      console.log(error);
+      throw new Error(error);
+    }
+  };
+};
+
 export const createUser = (inputData) => {
   return async (dispatch) => {
     try {
@@ -189,7 +206,7 @@ export const getAdoptions = () => {
 export const updateAdoption = ({ id, status }) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`/adopt/request/${id}`, { status });
+      const { data } = await axios.put(`/adopt/${id}`, { status });
       if (!data.success) return data.error;
       dispatch({
         type: actionType.CANCEL_ADOPTION,
@@ -264,5 +281,37 @@ export const verifyToken = (token) => {
         user: data.data,
       },
     });
+  };
+};
+
+export const getAdoptionRequest = () => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get("adopt/request");
+      if (!data.success) return data.error;
+      // if (data.success)
+      dispatch({
+        type: actionType.GET_ADOPTION_REQUEST,
+        payload: data.data,
+      });
+    } catch (error) {
+      console.log(error);
+      throw new Error(error);
+    }
+  };
+};
+
+export const answerRequest = ({ id, status }) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.put(`/adopt/request/${id}`, { status });
+      if (!data.success) return data.error;
+      dispatch({
+        type: actionType.ANSWER_ADOPTION_REQUEST,
+      });
+    } catch (error) {
+      console.log(error);
+      throw new Error(error);
+    }
   };
 };

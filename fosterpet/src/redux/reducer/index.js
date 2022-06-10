@@ -1,5 +1,6 @@
 import {
   GET_ANIMALS,
+  GET_ALL_ANIMALS,
   SIGN_IN,
   ADD_FAVORITE,
   GET_FAVORITES,
@@ -13,11 +14,13 @@ import {
   CREATE_ANIMAL,
   FILTER,
   FILTER_FAVORITES,
+  GET_ADOPTION_REQUEST,
 } from "../action/actionTypes";
 import { filter } from "./filter";
 const initialState = {
   animals: [],
   animalsCopy: [],
+  allAnimals: [],
   user: {},
   token: null,
   message: null,
@@ -25,6 +28,7 @@ const initialState = {
   favoritesCopy: [],
   success: false,
   adoptions: [],
+  adoptionsRequest: [],
 };
 
 function rootReducer(state = initialState, { type, payload }) {
@@ -34,6 +38,11 @@ function rootReducer(state = initialState, { type, payload }) {
         ...state,
         animals: payload,
         animalsCopy: payload,
+      };
+    case GET_ALL_ANIMALS:
+      return {
+        ...state,
+        allAnimals: payload,
       };
     case SIGN_IN:
       if (payload.message) return { ...state, message: payload.message };
@@ -58,6 +67,7 @@ function rootReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         adoptions: [],
+        adoptionsRequest: [],
         favorites: [],
         favoritesCopy: [],
         user: {},
@@ -103,6 +113,11 @@ function rootReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         favoritesCopy: filter(state.favorites, payload),
+      };
+    case GET_ADOPTION_REQUEST:
+      return {
+        ...state,
+        adoptionsRequest: payload,
       };
     default:
       return state;

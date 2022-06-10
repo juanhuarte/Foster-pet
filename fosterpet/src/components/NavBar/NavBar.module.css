@@ -18,24 +18,44 @@
 }
 .home {
   text-decoration: none;
-  grid-column: 6/7;
+  grid-column: 5/6;
   text-decoration: none;
 }
 
 .favorites {
   text-decoration: none;
-  grid-column: 7/8;
+  grid-column: 6/7;
 }
 
 .rescue {
   text-decoration: none;
-  grid-column: 8/9;
+  grid-column: 7/8;
   grid-row: 1/2;
 }
 
 .adoptions {
   text-decoration: none;
+  grid-column: 8/9;
+}
+
+.notification {
   grid-column: 9/10;
+  grid-row: 1/2;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number {
+  background-color: var(--primary-error-color);
+  color: var(--primary-font-color);
+  border-radius: 50%;
+  width: 1.3vw;
+  /* height: 1vw; */
+  font-size: 1vw;
+  margin-top: 0.1vh;
+  margin-left: -0.5vw;
 }
 
 .user {

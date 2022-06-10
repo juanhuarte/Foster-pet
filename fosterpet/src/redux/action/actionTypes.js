@@ -1,4 +1,5 @@
 export const GET_ANIMALS = "GET_ANIMALS";
+export const GET_ALL_ANIMALS = "GET_ALL_ANIMALS";
 export const CREATE_USER = "CREATE_USER";
 export const SIGN_IN = "SIGN_IN";
 export const ADD_FAVORITE = "ADD_FAVORITE";
@@ -15,3 +16,5 @@ export const DELETE_ACOUNT = "DELETE_ACOUNT";
 export const FILTER = "FILTER";
 export const FILTER_FAVORITES = "FILTER_FAVORITES";
 export const DELETE_ANIMAL = "DELETE_ANIMAL";
+export const GET_ADOPTION_REQUEST = "GET_ADOPTION_REQUEST";
+export const ANSWER_ADOPTION_REQUEST = "ANSWER_ADOPTION_REQUEST";
