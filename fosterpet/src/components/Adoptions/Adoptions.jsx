@@ -15,7 +15,11 @@ const Adoptions = () => {
     <div className={styles.detail}>
       <div className={styles.bkg} />
       <div className={styles.container}>
-        <AdoptionHistory adoptionsArray={adoptions} task="history" />
+        <AdoptionHistory
+          adoptionsArray={adoptions}
+          task="history"
+          title="Adoption History"
+        />
       </div>
     </div>
   );

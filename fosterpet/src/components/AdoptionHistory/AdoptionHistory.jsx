@@ -2,11 +2,11 @@
 import EachAdoption from "../EachAdoption/EachAdoption";
 import styles from "./AdoptionHistory.module.css";
 
-const AdoptionHistory = ({ adoptionsArray, task }) => {
+const AdoptionHistory = ({ adoptionsArray, task, title }) => {
   // const adoptions = useSelector((state) => state.adoptions);
   return (
     <div className={styles.adoptions}>
-      <h2 className={styles.title}>Adoption History</h2>
+      <h2 className={styles.title}>{title}</h2>
       <div className={styles.list}>
         {adoptionsArray?.length !== 0 ? (
           adoptionsArray?.map((adoption) => (
@@ -23,7 +23,7 @@ const AdoptionHistory = ({ adoptionsArray, task }) => {
             />
           ))
         ) : (
-          <p>You have never made a request</p>
+          <p className={styles.message}>You have never made a request</p>
         )}
       </div>
     </div>

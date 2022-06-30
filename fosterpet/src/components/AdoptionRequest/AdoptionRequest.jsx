@@ -9,7 +9,11 @@ const AdoptionRequest = () => {
     <div className={styles.detail}>
       <div className={styles.bkg} />
       <div className={styles.container}>
-        <AdoptionHistory adoptionsArray={adoptionsRequest} task="request" />
+        <AdoptionHistory
+          adoptionsArray={adoptionsRequest}
+          task="request"
+          title="Adoption Request"
+        />
       </div>
     </div>
   );
