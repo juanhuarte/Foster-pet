@@ -1,7 +1,7 @@
 const User = require("../../../models/user");
 
 const getUserProfile = (req, res) => {
-  const { userId } = req.body;
+  const { userId } = req.params;
   User.findById(userId)
     .then((result) => {
       res.json({

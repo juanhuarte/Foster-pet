@@ -16,7 +16,7 @@ router.get("/user", login);
 router.put("/user", authorizationToken, updateUser);
 router.put("/user/password", authorizationToken, updatePassword);
 router.delete("/user", authorizationToken, deleteUser);
-router.get("/user/profile", authorizationToken, getUserProfile);
+router.get("/user/:userId", authorizationToken, getUserProfile);
 
 router.get("/user/verify", authorizationToken, (req, res) => {
   res.json({
