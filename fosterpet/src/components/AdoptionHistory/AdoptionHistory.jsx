@@ -4,6 +4,7 @@ import styles from "./AdoptionHistory.module.css";
 
 const AdoptionHistory = ({ adoptionsArray, task, title }) => {
   // const adoptions = useSelector((state) => state.adoptions);
+
   return (
     <div className={styles.adoptions}>
       <h2 className={styles.title}>{title}</h2>
@@ -18,6 +19,7 @@ const AdoptionHistory = ({ adoptionsArray, task, title }) => {
                 rescuer: adoption.rescuer,
                 animal: adoption.animal,
                 id: adoption.id,
+                user: adoption.user,
                 task,
               }}
             />

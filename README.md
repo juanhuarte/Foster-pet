@@ -12,8 +12,6 @@ Fostering gives dogs and cats the time, love and care they need to find forever 
 
 ## Future Features
 
-- Geolocation
-
 - Nodemailer
 
 * Edit an Animal

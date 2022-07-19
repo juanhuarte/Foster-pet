@@ -315,3 +315,26 @@ export const answerRequest = ({ id, status }) => {
     }
   };
 };
+
+export const getAnimalsByLocation = (data) => {
+  return {
+    type: actionType.GET_ANIMALS_BY_LOCATION,
+    payload: data,
+  };
+};
+
+export const getUserProfile = (user) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`/user/profile/${user}`);
+      if (!data.success) return data.error;
+      dispatch({
+        type: actionType.GET_USER_PROFILE,
+        payload: data.userProfile,
+      });
+    } catch (error) {
+      console.log(error);
+      throw new Error(error);
+    }
+  };
+};

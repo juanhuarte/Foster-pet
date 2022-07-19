@@ -15,13 +15,16 @@ import {
   FILTER,
   FILTER_FAVORITES,
   GET_ADOPTION_REQUEST,
+  GET_ANIMALS_BY_LOCATION,
+  GET_USER_PROFILE,
 } from "../action/actionTypes";
-import { filter } from "./filter";
+import { filter, getAnimalsByLocation } from "./filter";
 const initialState = {
   animals: [],
   animalsCopy: [],
   allAnimals: [],
   user: {},
+  userProfile: {},
   token: null,
   message: null,
   favorites: [],
@@ -29,6 +32,7 @@ const initialState = {
   success: false,
   adoptions: [],
   adoptionsRequest: [],
+  geoLocation: null,
 };
 
 function rootReducer(state = initialState, { type, payload }) {
@@ -71,7 +75,10 @@ function rootReducer(state = initialState, { type, payload }) {
         favorites: [],
         favoritesCopy: [],
         user: {},
+        userProfile: {},
         token: null,
+        geoLocation: null,
+        animalsCopy: state.animals,
       };
     case CREATE_ADOPTION:
       return {
@@ -118,6 +125,17 @@ function rootReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         adoptionsRequest: payload,
+      };
+    case GET_ANIMALS_BY_LOCATION:
+      return {
+        ...state,
+        geoLocation: payload,
+        animalsCopy: getAnimalsByLocation(state.animals, payload),
+      };
+    case GET_USER_PROFILE:
+      return {
+        ...state,
+        userProfile: payload,
       };
     default:
       return state;

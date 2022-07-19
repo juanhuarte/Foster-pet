@@ -19,3 +19,19 @@ export const filter = (array, filterType) => {
   );
   return filteredArray;
 };
+
+export const getAnimalsByLocation = (animals, userLocation) => {
+  if (!userLocation) return animals;
+  let animalsByLocation = animals.filter(
+    (animal) =>
+      (((animal.location.split(" ")[0] - userLocation.split(" ")[0]) * 40000) /
+        360) **
+        2 +
+        (((animal.location.split(" ")[1] - userLocation.split(" ")[1]) *
+          40000) /
+          360) **
+          2 <=
+      25 ** 2
+  );
+  return animalsByLocation;
+};

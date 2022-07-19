@@ -21,7 +21,9 @@ export default function Animal({ gender, size, image, temporaryName, id }) {
   return (
     <div className={styles.container}>
       <NavLink className={styles.nav} to={`/animal/${id}`}>
-        <img src={image} alt={temporaryName} className={styles.img} />
+        <div className={styles.imgContainer}>
+          <img src={image} alt={temporaryName} className={styles.img} />
+        </div>
       </NavLink>
       <h3 className={styles.title}>{temporaryName}</h3>
       <div className={styles.details}>

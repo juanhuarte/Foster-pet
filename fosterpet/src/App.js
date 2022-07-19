@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getAnimals } from "./redux/action/index";
@@ -13,6 +13,7 @@ import {
   getFavorites,
   getAdoptions,
   getAdoptionRequest,
+  getAnimalsByLocation,
 } from "./redux/action/index";
 import AnimalDetail from "./components/AnimalDetail/AnimalDetail";
 import EditUser from "./components/EditUser/EditUser";
@@ -24,13 +25,24 @@ const { REACT_APP_API } = process.env;
 
 function App() {
   const dispatch = useDispatch();
+  // const [location, setLocation] = useState(null);
   const validation = useValidation();
   if (validation) {
     dispatch(getFavorites());
     dispatch(getAdoptions());
     dispatch(getAdoptionRequest());
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+        dispatch(getAnimalsByLocation(latitude + " " + longitude));
+      },
+      () => {
+        alert("Unable to retrieve your location");
+      }
+    );
   }
-
+  // console.log("location: ", location);
   useEffect(() => {
     dispatch(getAnimals());
   }, []);
