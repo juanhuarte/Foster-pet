@@ -25,7 +25,6 @@ const { REACT_APP_API } = process.env;
 
 function App() {
   const dispatch = useDispatch();
-  // const [location, setLocation] = useState(null);
   const validation = useValidation();
   if (validation) {
     dispatch(getFavorites());
